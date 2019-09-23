@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VMware on CloudArch</title>
+    <link>https://www.cloudarch.tech/tags/vmware/</link>
+    <description>Recent content in VMware on CloudArch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 01 Jan 2019 20:21:52 +0800</lastBuildDate>
+    
+	<atom:link href="https://www.cloudarch.tech/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【非原创】写给 VMware 用户看的 Kubernetes 扫盲贴</title>
+      <link>https://www.cloudarch.tech/posts/%E9%9D%9E%E5%8E%9F%E5%88%9B%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/</link>
+      <pubDate>Tue, 01 Jan 2019 20:21:52 +0800</pubDate>
+      
+      <guid>https://www.cloudarch.tech/posts/%E9%9D%9E%E5%8E%9F%E5%88%9B%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/</guid>
+      <description>容器技术是最近几年非常热门的技术，它似乎就是为云端的应用量身定制的，所以它也被贴上了云原生应用 (Cloud Native Application) 技术的标签。目前最为流行的容器管理调度平台是 Kubernetes (缩写为 K8s)，是 Google 为支持大批量容器而开发的企业级运行平台，可以支持负载均衡、高可靠等生产级功能。VMware 在 VMworld 2017 上也宣布了跟 Pi</description>
+    </item>
+    
+  </channel>
+</rss>
