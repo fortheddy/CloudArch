@@ -27,13 +27,13 @@
   </url>
   
   <url>
-    <loc>https://www.cloudarch.tech/tags/python/</loc>
+    <loc>https://www.cloudarch.tech/categories/python/</loc>
     <lastmod>2019-02-01T20:21:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.cloudarch.tech/categories/python/</loc>
+    <loc>https://www.cloudarch.tech/tags/python/</loc>
     <lastmod>2019-02-01T20:21:53+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -60,6 +60,12 @@
   </url>
   
   <url>
+    <loc>https://www.cloudarch.tech/tags/linux/</loc>
+    <lastmod>2019-01-01T20:21:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.cloudarch.tech/posts/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2019-01-01T20:21:52+08:00</lastmod>
   </url>
@@ -78,12 +84,6 @@
   
   <url>
     <loc>https://www.cloudarch.tech/categories/docker/</loc>
-    <lastmod>2019-01-01T20:21:52+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.cloudarch.tech/tags/linux/</loc>
     <lastmod>2019-01-01T20:21:52+08:00</lastmod>
     <priority>0</priority>
   </url>
