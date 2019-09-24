@@ -60,6 +60,12 @@
   </url>
   
   <url>
+    <loc>https://www.cloudarch.tech/tags/linux/</loc>
+    <lastmod>2019-01-01T20:21:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.cloudarch.tech/posts/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2019-01-01T20:21:52+08:00</lastmod>
   </url>
@@ -89,12 +95,6 @@
   </url>
   
   <url>
-    <loc>https://www.cloudarch.tech/tags/linux/</loc>
-    <lastmod>2019-01-01T20:21:52+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://www.cloudarch.tech/tags/vsphere/</loc>
     <lastmod>2019-01-01T20:21:52+08:00</lastmod>
     <priority>0</priority>
@@ -107,7 +107,7 @@
   </url>
   
   <url>
-    <loc>https://www.cloudarch.tech/posts/%E9%9D%9E%E5%8E%9F%E5%88%9B%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/</loc>
+    <loc>https://www.cloudarch.tech/posts/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/</loc>
     <lastmod>2019-01-01T20:21:52+08:00</lastmod>
   </url>
   
