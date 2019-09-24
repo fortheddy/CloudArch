@@ -30,15 +30,6 @@
     </item>
     
     <item>
-      <title>Linux</title>
-      <link>https://www.cloudarch.tech/tags/linux/</link>
-      <pubDate>Tue, 01 Jan 2019 20:21:52 +0800</pubDate>
-      
-      <guid>https://www.cloudarch.tech/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Shell</title>
       <link>https://www.cloudarch.tech/tags/shell/</link>
       <pubDate>Tue, 01 Jan 2019 20:21:52 +0800</pubDate>
@@ -53,6 +44,15 @@
       <pubDate>Tue, 01 Jan 2019 20:21:52 +0800</pubDate>
       
       <guid>https://www.cloudarch.tech/tags/vmware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://www.cloudarch.tech/tags/linux/</link>
+      <pubDate>Tue, 01 Jan 2019 20:21:52 +0800</pubDate>
+      
+      <guid>https://www.cloudarch.tech/tags/linux/</guid>
       <description></description>
     </item>
     
