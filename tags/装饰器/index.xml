@@ -13,10 +13,10 @@
     
     <item>
       <title>Python装饰器原理与使用</title>
-      <link>https://www.cloudarch.tech/posts/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/</link>
+      <link>https://www.cloudarch.tech/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Tue, 01 Jan 2019 20:21:52 +0800</pubDate>
       
-      <guid>https://www.cloudarch.tech/posts/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://www.cloudarch.tech/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/</guid>
       <description>闭包 闭包的定义：嵌套函数，且内部函数调用了外部函数的变量时，就构成了闭包。 下面的例子就是一个函数闭包： def outer(n): a = n def inner(): print(a) print(inner.__closure__) outer() 闭包的__closure__显示为cell 装饰器 装饰器其实就是闭包的一种应用。装饰器的作用是不改变函数的调用方式，但要在原来的函数前后添加功能。 装饰器的形式：</description>
     </item>
     

@@ -12,20 +12,20 @@
     
     
     <item>
-      <title>写给 VMware 用户看的 Kubernetes 扫盲贴</title>
-      <link>https://www.cloudarch.tech/posts/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/</link>
+      <title>【转载】写给 VMware 用户看的 Kubernetes 扫盲贴</title>
+      <link>https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/</link>
       <pubDate>Tue, 01 Jan 2019 20:21:52 +0800</pubDate>
       
-      <guid>https://www.cloudarch.tech/posts/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/</guid>
+      <guid>https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/</guid>
       <description>容器技术是最近几年非常热门的技术，它似乎就是为云端的应用量身定制的，所以它也被贴上了云原生应用 (Cloud Native Application) 技术的标签。目前最为流行的容器管理调度平台是 Kubernetes (缩写为 K8s)，是 Google 为支持大批量容器而开发的企业级运行平台，可以支持负载均衡、高可靠等生产级功能。VMware 在 VMworld 2017 上也宣布了跟 Pi</description>
     </item>
     
     <item>
       <title>Docker基础原理</title>
-      <link>https://www.cloudarch.tech/posts/docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/</link>
+      <link>https://www.cloudarch.tech/post/docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/</link>
       <pubDate>Fri, 01 Dec 2017 20:21:52 +0800</pubDate>
       
-      <guid>https://www.cloudarch.tech/posts/docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/</guid>
+      <guid>https://www.cloudarch.tech/post/docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/</guid>
       <description>Docker基础原理 Docker与传统虚拟化的区别： 虚拟化是硬件资源划分的方案，采用Intel VT-x等硬件虚拟化技术；Docker是操作系统级别的虚拟化，Docker没有传统虚拟化中的Hypervisor层，其虚拟化技术是基于内核的Cgroup和Namespace技术。 Dock</description>
     </item>
     
