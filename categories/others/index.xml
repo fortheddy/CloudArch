@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>others on CloudArch</title>
+    <link>https://www.cloudarch.tech/categories/others/</link>
+    <description>Recent content in others on CloudArch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 01 Sep 2019 20:21:52 +0800</lastBuildDate>
+    
+	<atom:link href="https://www.cloudarch.tech/categories/others/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo&#43;GitHub Pages搭建个人博客</title>
+      <link>https://www.cloudarch.tech/post/hugo&#43;github-pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sun, 01 Sep 2019 20:21:52 +0800</pubDate>
+      
+      <guid>https://www.cloudarch.tech/post/hugo&#43;github-pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>1、安装配置Hugo Hugo是一个Go语言开发的静态网站生成器，可以非常快速的将纯文本转化为静态网站和博客。类似的工具还有Hexo（基于Node.js）和Jekyll（基于Ruby）等。Hugo的优点是运行速度快，不需要安装Node.js等运行环境，使用简单。 Hugo是Githu</description>
+    </item>
+    
+  </channel>
+</rss>

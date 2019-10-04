@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Hugo&#43;GitHub Pages搭建个人博客 | CloudArch</title>
+    <meta property="og:title" content="Hugo&#43;GitHub Pages搭建个人博客 - CloudArch">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2019-09-01T20:21:52&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2019-09-01T20:21:52&#43;08:00">
+        
+    <meta name="Keywords" content="python,golang,linux,VMware,虚拟化,docker,kubernetes,公有云,软件定义,SDN,devops,cloudera,hadoop">
+    <meta name="description" content="Hugo&#43;GitHub Pages搭建个人博客">
+        
+    <meta name="author" content="季eddy">
+    <meta property="og:url" content="https://www.cloudarch.tech/post/hugo&#43;github-pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
+    
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://www.cloudarch.tech">
+                        CloudArch
+                    </a>
+                
+                <p class="description">虚拟化、容器、云架构、DevOps知识分享</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://www.cloudarch.tech">首页</a>
+                    
+                    <a  href="https://www.cloudarch.tech/categories/virtualization/" title="虚拟化">虚拟化</a>
+                    
+                    <a  href="https://www.cloudarch.tech/categories/docker/" title="容器">容器</a>
+                    
+                    <a  href="https://www.cloudarch.tech/categories/cloud/" title="公有云">公有云</a>
+                    
+                    <a  href="https://www.cloudarch.tech/categories/python/" title="Python">Python</a>
+                    
+                    <a  href="https://www.cloudarch.tech/categories/linux/" title="Linux">Linux</a>
+                    
+                    <a  href="https://www.cloudarch.tech/categories/others/" title="碎念">碎念</a>
+                    
+                    <a  href="https://www.cloudarch.tech/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://www.cloudarch.tech/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">Hugo&#43;GitHub Pages搭建个人博客</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2019年9月1日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="https://www.cloudarch.tech/categories/others">others</a></span>
+                            
+                        </div>
+                        
+                        
+                        <div class="post-meta">
+                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
+                        </div>
+                        
+                        
+                        <div class="clear">
+                            <div class="toc-article">
+                                <div class="toc-title">文章目录</div>
+                                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-安装配置hugo">1、安装配置Hugo</a></li>
+<li><a href="#2-创建本地站点">2、创建本地站点</a></li>
+<li><a href="#3-将博客上传到github-pages">3、将博客上传到GitHub Pages</a></li>
+</ul></li>
+</ul>
+</nav>
+                            </div>
+                        </div>
+                        
+                        <div class="post-content">
+                            
+
+<h2 id="1-安装配置hugo">1、安装配置Hugo</h2>
+
+<p>Hugo是一个Go语言开发的静态网站生成器，可以非常快速的将纯文本转化为静态网站和博客。类似的工具还有Hexo（基于Node.js）和Jekyll（基于Ruby）等。Hugo的优点是运行速度快，不需要安装Node.js等运行环境，使用简单。</p>
+
+<p>Hugo是Github开源项目，地址：[<a href="https://github.com/gohugoio/hugo">https://github.com/gohugoio/hugo</a>]</p>
+
+<p>直接下载对应操作系统的压缩包解压即可使用。Mac系统可以直接使用<code>brew install hugo</code>。Windows系统可以将Hugo运行路径加入系统的Path环境变量中，就可以在CMD中直接运行hugo命令。</p>
+
+<h2 id="2-创建本地站点">2、创建本地站点</h2>
+
+<p>1、在当前目录下生成一个HugoSite目录：<code>hugo new site HugoSite</code></p>
+
+<p>2、进入themes目录下，添加博客主题。本文使用的主题基于下面两个主题进行修改：</p>
+
+<p><a href="https://github.com/bjhee/maupassant-hugo">https://github.com/bjhee/maupassant-hugo</a></p>
+
+<p><a href="https://github.com/rujews/maupassant-hugo">https://github.com/rujews/maupassant-hugo</a></p>
+
+<p>在HugoSite/themes目录下添加主题：<code>git clone https://github.com/rujews/maupassant-hugo</code></p>
+
+<p>3、修改HugoSite目录下config.toml文件：</p>
+
+<pre><code>baseURL = &quot;https://www.cloudarch.tech&quot;
+languageCode = &quot;zh-CN&quot;
+title = &quot;CloudArch&quot;
+theme = &quot;maupassant-hugo&quot;
+hasCJKLanguage = true	# 中日韩语言支持
+enableRobotsTXT = true	# 爬虫支持
+PaginatePath = &quot;page&quot;	# 分页
+summaryLength = 140		# 摘要显示字数
+
+[author]
+	name = &quot;&quot;
+	# homepage = &quot;&quot;
+
+[params]
+	author = &quot;&quot;
+	subtitle = &quot;&quot;
+	keywords = &quot;&quot;
+
+	busuanzi = true
+	## 保持分类的原始名字（false会做转小写处理）
+	preserveTaxonomyNames = false
+	## 是否禁止URL Path转小写
+	disablePathToLower = false
+
+	related = true	# 是否显示See Also其他文章
+	recentPostNumber = 10	# 右边栏最近文章链接的个数，默认为10
+
+	# customCSS = [&quot;style.extra.css&quot;]
+    # customJS = [&quot;app.extra.js&quot;]
+	
+[params.utteranc]
+	enable = true
+	repo = &quot;splintereddy/cloudarch_comments&quot;    # 存储评论的Repo，格式为 owner/repo
+	issueTerm = &quot;pathname&quot;  #表示你选择以那种方式让github issue的评论和你的文章关联。
+	theme = &quot;github-light&quot; # 样式主题，有github-light和github-dark两种
+
+[menu]
+	
+	# 博客中主菜单，weight代表排列顺序，数值越小越靠左，最左面是&quot;主页&quot; 
+	[[menu.main]]
+		identifier = &quot;archives&quot;
+		name = &quot;归档&quot;
+		url = &quot;/archives/&quot;
+		weight = 8
+	[[menu.main]]
+    	identifier = &quot;about&quot;
+    	name = &quot;关于&quot;
+    	url = &quot;/about/&quot;
+    	weight = 9
+</code></pre>
+
+<p>4、创建归档页。在HugoSite/content目录下创建archives.md文件，文档中添加下面的内容：</p>
+
+<pre><code>---
+title: &quot;归档&quot;
+type: &quot;archives&quot;
+---
+</code></pre>
+
+<p>5、创建关于页面。在HugoSite/content目录下创建about.md文件，文档中添加下面的内容：</p>
+
+<pre><code>---
+title: &quot;关于&quot;
+author: &quot;&quot;
+type: &quot;about&quot;
+---
+</code></pre>
+
+<p>6、创建新博客文章。以.md文档编写博客，放在HugoSite/content/post目录下。文档开头需要有如下格式：</p>
+
+<pre><code>title: &quot;&quot;
+date: 2019-01-01T20:21:52+08:00
+draft: false
+tags: [&quot;&quot;,&quot;&quot;]
+categories: [&quot;&quot;]
+toc: True	# 设置是否显示目录
+</code></pre>
+
+<h2 id="3-将博客上传到github-pages">3、将博客上传到GitHub Pages</h2>
+
+<p>1、在HugoSite目录下打开CMD，运行命令<code>hugo</code>，Hugo就会在public目录下自动生成静态页面。</p>
+
+<p><img src="Hugo+GitHub Pages搭建个人博客.assets/1570177982025.png" alt="1570177982025" /></p>
+
+<p>2、在GitHub中创建一个public repository，将public目录下所有文件上传到github中。在repository的Settings/GitHub Pages设置域名，便可以通过此域名访问自己的博客。</p>
+
+                        </div>
+
+                        
+
+
+                        
+                          
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/">python字符串内置方法</a></li>
+        
+        <li><a href="/post/python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/">python函数参数</a></li>
+        
+        <li><a href="/post/awk%E5%92%8Csed%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/">AWK和SED文本处理常用命令汇总</a></li>
+        
+        <li><a href="/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/">Python装饰器原理与使用</a></li>
+        
+        <li><a href="/post/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/">【转载】写给 VMware 用户看的 Kubernetes 扫盲贴</a></li>
+        
+    </ul>
+</div>
+
+                        
+                        
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="https://www.cloudarch.tech/tags/hugo">hugo</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "splintereddy/cloudarch_comments"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="https://www.baidu.com/s" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1" onsubmit="return buildQuery()">
+      
+      <input type="text" id="query" maxlength="20" placeholder="Search">
+      <input type="hidden" id="wd" name="wd" value="">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+
+
+<script>
+    function buildQuery(){
+        var queryString= document.getElementById('query').value;
+        var baseUrl = "https:\/\/www.cloudarch.tech";
+        
+        var url = baseUrl.replace(/^(https:|http:|)\/\//, "").replace(/\/$/, "");
+          
+        var wdElement = document.getElementById('wd');
+        wdElement.value= queryString + " site:" + url;  
+        
+        return true;
+    }
+</script>
+
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    
+        
+    
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/hugo&#43;github-pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="Hugo&#43;GitHub Pages搭建个人博客">Hugo&#43;GitHub Pages搭建个人博客</a><br>
+        <date class="post-meta meta-date" style="text-align: right">
+           2019年9月1日
+        </date>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/" title="python字符串内置方法">python字符串内置方法</a><br>
+        <date class="post-meta meta-date" style="text-align: right">
+           2019年2月1日
+        </date>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" title="python函数参数">python函数参数</a><br>
+        <date class="post-meta meta-date" style="text-align: right">
+           2019年2月1日
+        </date>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/awk%E5%92%8Csed%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" title="AWK和SED文本处理常用命令汇总">AWK和SED文本处理常用命令汇总</a><br>
+        <date class="post-meta meta-date" style="text-align: right">
+           2019年1月1日
+        </date>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/" title="Python装饰器原理与使用">Python装饰器原理与使用</a><br>
+        <date class="post-meta meta-date" style="text-align: right">
+           2019年1月1日
+        </date>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/" title="【转载】写给 VMware 用户看的 Kubernetes 扫盲贴">【转载】写给 VMware 用户看的 Kubernetes 扫盲贴</a><br>
+        <date class="post-meta meta-date" style="text-align: right">
+           2019年1月1日
+        </date>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEprometheus-&#43;-grafana%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E5%B9%B3%E5%8F%B0/" title="安装配置Prometheus &#43; Grafana运维监控平台">安装配置Prometheus &#43; Grafana运维监控平台</a><br>
+        <date class="post-meta meta-date" style="text-align: right">
+           2018年1月1日
+        </date>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/" title="Docker基础原理">Docker基础原理</a><br>
+        <date class="post-meta meta-date" style="text-align: right">
+           2017年12月1日
+        </date>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9python-package%E6%BA%90/" title="修改Python Package源">修改Python Package源</a><br>
+        <date class="post-meta meta-date" style="text-align: right">
+           2017年12月1日
+        </date>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://www.cloudarch.tech/categories/docker/">docker(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/categories/linux/">linux(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/categories/others/">others(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/categories/python/">python(4)</a>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/categories/virtualization/">virtualization(1)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://www.cloudarch.tech/tags/docker/">docker</a>
+    
+    <a href="https://www.cloudarch.tech/tags/hugo/">hugo</a>
+    
+    <a href="https://www.cloudarch.tech/tags/kubernetes/">kubernetes</a>
+    
+    <a href="https://www.cloudarch.tech/tags/linux/">linux</a>
+    
+    <a href="https://www.cloudarch.tech/tags/python/">python</a>
+    
+    <a href="https://www.cloudarch.tech/tags/shell/">shell</a>
+    
+    <a href="https://www.cloudarch.tech/tags/vmware/">vmware</a>
+    
+    <a href="https://www.cloudarch.tech/tags/vsphere/">vsphere</a>
+    
+    <a href="https://www.cloudarch.tech/tags/%E7%9B%91%E6%8E%A7/">监控</a>
+    
+    <a href="https://www.cloudarch.tech/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a>
+    
+    <a href="https://www.cloudarch.tech/tags/%E8%A3%85%E9%A5%B0%E5%99%A8/">装饰器</a>
+    
+    <a href="https://www.cloudarch.tech/tags/%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/">镜像加速</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://www.cloudarch.tech/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container" style="text-align:center">
+        &copy; 2019 <a href="https://www.cloudarch.tech">CloudArch By 季eddy</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://github.com/bjhee/maupassant-hugo" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+
+    
+</footer>
+
+
+    <script type="text/javascript">
+    
+    (function(){
+        $("pre code").parent().addClass("line-numbers")
+    }())
+
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            processEscapes: true
+        }
+    };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+<script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+
+</body>
+</html>

@@ -4,17 +4,37 @@
   
   <url>
     <loc>https://www.cloudarch.tech/categories/</loc>
-    <lastmod>2019-02-01T20:21:53+08:00</lastmod>
+    <lastmod>2019-09-01T20:21:52+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.cloudarch.tech/</loc>
-    <lastmod>2019-02-01T20:21:53+08:00</lastmod>
+    <lastmod>2019-09-01T20:21:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.cloudarch.tech/tags/hugo/</loc>
+    <lastmod>2019-09-01T20:21:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.cloudarch.tech/post/hugo&#43;github-pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2019-09-01T20:21:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.cloudarch.tech/categories/others/</loc>
+    <lastmod>2019-09-01T20:21:52+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.cloudarch.tech/post/</loc>
-    <lastmod>2019-02-01T20:21:53+08:00</lastmod>
+    <lastmod>2019-09-01T20:21:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.cloudarch.tech/tags/</loc>
+    <lastmod>2019-09-01T20:21:52+08:00</lastmod>
   </url>
   
   <url>
@@ -29,11 +49,6 @@
   
   <url>
     <loc>https://www.cloudarch.tech/post/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2019-02-01T20:21:53+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.cloudarch.tech/tags/</loc>
     <lastmod>2019-02-01T20:21:53+08:00</lastmod>
   </url>
   
