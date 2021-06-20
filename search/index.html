@@ -9,21 +9,20 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>镜像加速 | CloudArch</title>
-    <meta property="og:title" content="镜像加速 - CloudArch">
+    <title>搜索 | CloudArch</title>
+    <meta property="og:title" content="搜索 - CloudArch">
     <meta property="og:type" content="article">
         
         
     <meta name="Keywords" content="python,golang,linux,VMware,虚拟化,docker,kubernetes,公有云,软件定义,SDN,devops,cloudera,hadoop">
-    <meta name="description" content="镜像加速">
+    <meta name="description" content="搜索页面">
         
     <meta name="author" content="季eddy">
-    <meta property="og:url" content="https://www.cloudarch.tech/tags/%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/">
+    <meta property="og:url" content="https://www.cloudarch.tech/search/">
     <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml" href="https://www.cloudarch.tech/tags/%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/index.xml" title="CloudArch" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -86,46 +85,71 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    
     <h3 class="archive-title">
-        包含标签
-        <span class="keyword">镜像加速</span>
-        的文章
+        搜索
+        <span class="keyword">哈哈</span>
+        的结果
     </h3>
-    
 
-    
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9python-package%E6%BA%90/">修改Python Package源</a>
+                <a href="链接">标题</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
-            2017年12月1日
+            2019年12月01日
         </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='/categories/python'>python</a>
-            
-        </div>
-        
         <div class="post-content">
-            修改Python Package源 国内开源软件镜像： 阿里巴巴开源软件镜像 https://opsx.alibaba.com/mirror 清华大学开源软件镜像 https://mirrors.tuna.tsinghua.edu.cn/ 中国科技大学开源镜像 https://mirrors.ustc.edu.cn/ 使用pip安装python包时使用下面的命令修改国内镜像源： pip config set global.index-url https://pypi.douban.com/simple/ 可以将源替换成https://mirrors.aliyun.com/pypi/simple等 在……
-            <p class="readmore"><a href="https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9python-package%E6%BA%90/">阅读全文</a></p>
+            概要……
+            <p class="readmore"><a href="链接">阅读全文</a></p>
         </div>
     </article>
-    
-
-    
-
-
-
-
 
 </div>
+
+<script type="text/javascript">
+
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+
+    $(document).ready(function () {
+        var q = getUrlParameter("q");
+        $("span.keyword").text(q);
+        $("article.post").remove();
+        $.ajax({
+            url: 'https:\/\/www.cloudarch.tech\/index.xml',
+            dataType: "xml",
+            success: function (data) {
+                $(data).find("item").each(function () {
+                    var item = $(this);
+                    var title = item.find("title").text();
+                    if (title.toLowerCase().indexOf(q.toLowerCase()) >= 0) {
+                        var url = item.find("link").text();
+                        var searchItem = `<article class="post"><header><h1 class="post-title"><a href="` + url + `">` + title + `</a></h1></header>`;
+                        var pubDate = new Date(item.find("pubDate").text())
+                        searchItem += `<date class="post-meta meta-date">` + pubDate.getFullYear() + `年` + (pubDate.getMonth() + 1) + `月` + pubDate.getDate() + `日</date>`;
+                        searchItem += `<div class="post-content">` + item.find("description").text() + `……<p class="readmore"><a href="` + url + `">阅读全文</a></p></div></article>`;
+
+                        $("div.res-cons").append(searchItem);
+                    }
+                });
+            }
+        });
+    });
+</script>
 
                     <footer id="footer">
     <div>
@@ -147,6 +171,16 @@
 </footer>
 
 
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>

@@ -95,5 +95,7 @@
     <loc>https://www.cloudarch.tech/about/</loc>
   </url><url>
     <loc>https://www.cloudarch.tech/archives/</loc>
+  </url><url>
+    <loc>https://www.cloudarch.tech/search/</loc>
   </url>
 </urlset>
