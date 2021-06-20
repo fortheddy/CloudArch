@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hugo on CloudArch</title>
@@ -6,11 +6,7 @@
     <description>Recent content in hugo on CloudArch</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 01 Sep 2019 20:21:52 +0800</lastBuildDate>
-    
-	<atom:link href="https://www.cloudarch.tech/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 01 Sep 2019 20:21:52 +0800</lastBuildDate><atom:link href="https://www.cloudarch.tech/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo&#43;GitHub Pages搭建个人博客</title>
       <link>https://www.cloudarch.tech/post/hugo&#43;github-pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>

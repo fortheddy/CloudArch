@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubernetes on CloudArch</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Kubernetes on CloudArch</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 01 Jan 2019 20:21:52 +0800</lastBuildDate>
-    
-	<atom:link href="https://www.cloudarch.tech/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 01 Jan 2019 20:21:52 +0800</lastBuildDate><atom:link href="https://www.cloudarch.tech/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【转载】写给 VMware 用户看的 Kubernetes 扫盲贴</title>
       <link>https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/</link>

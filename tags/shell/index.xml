@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shell on CloudArch</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Shell on CloudArch</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 01 Jan 2019 20:21:52 +0800</lastBuildDate>
-    
-	<atom:link href="https://www.cloudarch.tech/tags/shell/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 01 Jan 2019 20:21:52 +0800</lastBuildDate><atom:link href="https://www.cloudarch.tech/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWK和SED文本处理常用命令汇总</title>
       <link>https://www.cloudarch.tech/post/awk%E5%92%8Csed%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/</link>

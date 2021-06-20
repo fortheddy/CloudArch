@@ -3,43 +3,47 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
 
     <title>Python装饰器原理与使用 | CloudArch</title>
     <meta property="og:title" content="Python装饰器原理与使用 - CloudArch">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2019-01-01T20:21:52&#43;08:00">
+    <meta property="article:published_time" content='2019-01-01T20:21:52&#43;08:00'>
         
         
-    <meta property="article:modified_time" content="2019-01-01T20:21:52&#43;08:00">
+    <meta property="article:modified_time" content='2019-01-01T20:21:52&#43;08:00'>
         
     <meta name="Keywords" content="python,golang,linux,VMware,虚拟化,docker,kubernetes,公有云,软件定义,SDN,devops,cloudera,hadoop">
     <meta name="description" content="Python装饰器原理与使用">
         
     <meta name="author" content="季eddy">
     <meta property="og:url" content="https://www.cloudarch.tech/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-        <link rel="stylesheet" href="/css/prism.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
-    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
     
-
     
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
     
 </head>
 
+
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
@@ -76,58 +80,144 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-    <div class="container">
-        <div class="col-group">
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
 
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    <article class="post">
-                        <header>
-                            <h1 class="post-title">Python装饰器原理与使用</h1>
-                        </header>
-                        <date class="post-meta meta-date">
-                            2019年1月1日
-                        </date>
-                        
-                        <div class="post-meta">
-                            <span>|</span>
-                            
-                                <span class="meta-category"><a href="https://www.cloudarch.tech/categories/python">python</a></span>
-                            
-                        </div>
-                        
-                        
-                        <div class="post-meta">
-                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
-                        </div>
-                        
-                        
-                        <div class="clear">
-                            <div class="toc-article">
-                                <div class="toc-title">文章目录</div>
-                                <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#闭包">闭包</a></li>
-<li><a href="#装饰器">装饰器</a></li>
-</ul></li>
-</ul>
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#闭包">闭包</a></li>
+    <li><a href="#装饰器">装饰器</a></li>
+  </ul>
 </nav>
-                            </div>
-                        </div>
-                        
-                        <div class="post-content">
-                            
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
 
-<h2 id="闭包">闭包</h2>
-
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">Python装饰器原理与使用</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年1月1日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/python'>python</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <h2 id="闭包">闭包</h2>
 <p>闭包的定义：嵌套函数，且内部函数调用了外部函数的变量时，就构成了闭包。</p>
-
 <p>下面的例子就是一个函数闭包：</p>
-
 <pre><code>def outer(n):
     a = n
 
@@ -138,18 +228,13 @@
 
 
 outer()
-</code></pre>
-
-<p>闭包的<code>__closure__</code>显示为<code>cell</code></p>
-
-<p><img src="python装饰器原理与使用.assets/e9122198-1bf3-41d3-ae9c-c4581946bfb0.png" alt="e9122198-1bf3-41d3-ae9c-c4581946bfb0" /></p>
-
+</code></pre><p>闭包的<code>__closure__</code>显示为<code>cell</code></p>
+<p>
+        <img class="mx-auto" alt="e9122198-1bf3-41d3-ae9c-c4581946bfb0" src="python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/e9122198-1bf3-41d3-ae9c-c4581946bfb0.png" />   
+    </p>
 <h2 id="装饰器">装饰器</h2>
-
 <p>装饰器其实就是闭包的一种应用。装饰器的作用是不改变函数的调用方式，但要在原来的函数前后添加功能。</p>
-
 <p>装饰器的形式：</p>
-
 <pre><code>def wrapper_name(func):  # wrapper_name是装饰器函数名字
     def inner():
         # 要在被装饰的函数之前添加的功能。eg:
@@ -170,20 +255,14 @@ def func_test():
 final_func = wrapper_name(func_test)
 final_func()
 print('函数名为：', final_func.__name__)
-</code></pre>
-
-<p>上面的例子就是一个最简单的装饰器的形式。原函数<code>func_test</code>作为装饰器函数<code>wrapper_name</code>的参数传递到<code>wrapper_name</code>内部定义的<code>inner</code>函数中，即内部函数<code>inner</code>调用了外部函数<code>wrapper_name</code>的参数（这个参数是一个函数对象），并将<code>inner</code>函数自己返回给外部函数<code>wrapper_name</code>，此时便形成了装饰器。</p>
-
+</code></pre><p>上面的例子就是一个最简单的装饰器的形式。原函数<code>func_test</code>作为装饰器函数<code>wrapper_name</code>的参数传递到<code>wrapper_name</code>内部定义的<code>inner</code>函数中，即内部函数<code>inner</code>调用了外部函数<code>wrapper_name</code>的参数（这个参数是一个函数对象），并将<code>inner</code>函数自己返回给外部函数<code>wrapper_name</code>，此时便形成了装饰器。</p>
 <p>装饰器的要点：</p>
-
 <ol>
 <li>被装饰函数作为参数传递给装饰器函数<code>wrapper_name</code>；</li>
 <li>装饰器函数<code>wrapper_name</code>内部需要定义一个内部函数<code>inner</code>，并将被装饰函数作为参数传入<code>inner</code>；</li>
 <li>装饰器函数<code>wrapper_name</code>；需要将内部函数<code>inner</code>作为返回值返回；</li>
 </ol>
-
 <p>最终装饰器函数<code>wrapper_name</code>执行以后返回值也是一个函数对象，再执行返回的对象便达到了“不改变被装饰函数的原本逻辑，但在原来的函数前后添加功能”的目的。</p>
-
 <pre><code># 下面的调用装饰器函数的方式太繁琐，Python提供了一个语法糖@
 final_func = wrapper_name(func_test)
 final_func()
@@ -196,14 +275,11 @@ def func_test():
 # 直接调用被装饰函数
 func_test()
 #### ####
-</code></pre>
-
-<p>上面的例子的执行结果：</p>
-
-<p><img src="python装饰器原理与使用.assets/QQ拼音截图20190828234648.png" alt="QQ拼音截图20190828234648" /></p>
-
+</code></pre><p>上面的例子的执行结果：</p>
+<p>
+        <img class="mx-auto" alt="QQ拼音截图20190828234648" src="python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/QQ%e6%8b%bc%e9%9f%b3%e6%88%aa%e5%9b%be20190828234648.png" />   
+    </p>
 <p>可以发现原函数<code>func_test</code>被装饰以后<code>func.__name__</code>值变成了<code>inner</code>，如果想要被装饰以后函数的<code>.__name__</code>仍为<code>func_test</code>则需要通过下面的方式：</p>
-
 <pre><code>from functools import wraps  # 与下面第4行@wraps(func)结合使用
 
 
@@ -230,33 +306,37 @@ def func_test():
 
 func_test()
 print('函数名为：', func_test.__name__)
-</code></pre>
-
-<p>运行结果：</p>
-
-<p><img src="python装饰器原理与使用.assets/ec0c9e6a-b22b-441d-99c0-6b78edf35386.png" alt="ec0c9e6a-b22b-441d-99c0-6b78edf35386" /></p>
-
+</code></pre><p>运行结果：</p>
+<p>
+        <img class="mx-auto" alt="ec0c9e6a-b22b-441d-99c0-6b78edf35386" src="python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/ec0c9e6a-b22b-441d-99c0-6b78edf35386.png" />   
+    </p>
 <p>上面的代码就是装饰器的一般形式。</p>
-
 <p>多个装饰器装饰同一个函数时，先执行距离被装饰函数最近的装饰器（即写在最下面的装饰器），装饰后的结果再作为被装饰函数继续被上面的装饰器进行装饰。</p>
-
 <pre><code>@wrapper1 #一定要在被装饰函数定义前调用装饰器
 @wrapper2
 def funcTest():
     print('函数启动')
 
 funcTest()
-</code></pre>
+</code></pre><p>
+        <img class="mx-auto" alt="792eec98-4d32-491f-bca4-652b81640b6f" src="python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/792eec98-4d32-491f-bca4-652b81640b6f.png" />   
+    </p>
 
-<p><img src="python装饰器原理与使用.assets/792eec98-4d32-491f-bca4-652b81640b6f.png" alt="792eec98-4d32-491f-bca4-652b81640b6f" /></p>
+        </div>
 
-                        </div>
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://www.cloudarch.tech">季eddy</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://www.cloudarch.tech/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/">https://www.cloudarch.tech/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
 
-                        
 
 
-                        
-                          
+        
 
 <div class="post-archive">
     <h2>See Also</h2>
@@ -275,21 +355,20 @@ funcTest()
     </ul>
 </div>
 
-                        
-                        
-                        <div class="post-meta meta-tags">
-                            
-                            <ul class="clearfix">
-                                
-                                <li><a href="https://www.cloudarch.tech/tags/python">python</a></li>
-                                
-                                <li><a href="https://www.cloudarch.tech/tags/%E8%A3%85%E9%A5%B0%E5%99%A8">装饰器</a></li>
-                                
-                            </ul>
-                            
-                        </div>
-                    </article>
-                    
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/python'>python</a></li>
+                
+                <li><a href='/tags/%E8%A3%85%E9%A5%B0%E5%99%A8'>装饰器</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
     
 
     
@@ -304,103 +383,101 @@ funcTest()
       </script>
     </div>
     
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2021 <a href="https://www.cloudarch.tech">CloudArch By 季eddy</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
                 </div>
-            </div>
-            <div id="secondary">
+
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="https://www.baidu.com/s" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1" onsubmit="return buildQuery()">
+        <form id="search" action='https://www.cloudarch.tech/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
-      <input type="text" id="query" maxlength="20" placeholder="Search">
-      <input type="hidden" id="wd" name="wd" value="">
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://www.cloudarch.tech">
       <button type="submit" class="submit icon-search"></button>
 </form>
-
-
-<script>
-    function buildQuery(){
-        var queryString= document.getElementById('query').value;
-        var baseUrl = "https:\/\/www.cloudarch.tech";
-        
-        var url = baseUrl.replace(/^(https:|http:|)\/\//, "").replace(/\/$/, "");
-          
-        var wdElement = document.getElementById('wd');
-        wdElement.value= queryString + " site:" + url;  
-        
-        return true;
-    }
-</script>
-
     </section>
     
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
     
-    
-        
-    
-    
     <li>
-        <a href="https://www.cloudarch.tech/post/hugo&#43;github-pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="Hugo&#43;GitHub Pages搭建个人博客">Hugo&#43;GitHub Pages搭建个人博客</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2019年9月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/hugo&#43;github-pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="Hugo&#43;GitHub Pages搭建个人博客">Hugo&#43;GitHub Pages搭建个人博客</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/" title="python字符串内置方法">python字符串内置方法</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2019年2月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/" title="python字符串内置方法">python字符串内置方法</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" title="python函数参数">python函数参数</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2019年2月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" title="python函数参数">python函数参数</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/awk%E5%92%8Csed%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" title="AWK和SED文本处理常用命令汇总">AWK和SED文本处理常用命令汇总</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2019年1月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/awk%E5%92%8Csed%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" title="AWK和SED文本处理常用命令汇总">AWK和SED文本处理常用命令汇总</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/" title="Python装饰器原理与使用">Python装饰器原理与使用</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2019年1月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/" title="Python装饰器原理与使用">Python装饰器原理与使用</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/" title="【转载】写给 VMware 用户看的 Kubernetes 扫盲贴">【转载】写给 VMware 用户看的 Kubernetes 扫盲贴</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2019年1月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/" title="【转载】写给 VMware 用户看的 Kubernetes 扫盲贴">【转载】写给 VMware 用户看的 Kubernetes 扫盲贴</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEprometheus-&#43;-grafana%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E5%B9%B3%E5%8F%B0/" title="安装配置Prometheus &#43; Grafana运维监控平台">安装配置Prometheus &#43; Grafana运维监控平台</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2018年1月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEprometheus-&#43;-grafana%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E5%B9%B3%E5%8F%B0/" title="安装配置Prometheus &#43; Grafana运维监控平台">安装配置Prometheus &#43; Grafana运维监控平台</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/" title="Docker基础原理">Docker基础原理</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2017年12月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/" title="Docker基础原理">Docker基础原理</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9python-package%E6%BA%90/" title="修改Python Package源">修改Python Package源</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2017年12月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9python-package%E6%BA%90/" title="修改Python Package源">修改Python Package源</a>
     </li>
     
 </ul>
@@ -409,51 +486,41 @@ funcTest()
     
 
     <section class="widget">
-        <h3 class="widget-title">分类</h3>
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li>
-        <a href="https://www.cloudarch.tech/categories/docker/">docker(2)</a>
-    </li>
+    <li><a href="https://www.cloudarch.tech/categories/docker/">docker (2)</a></li>
     
-    <li>
-        <a href="https://www.cloudarch.tech/categories/linux/">linux(2)</a>
-    </li>
+    <li><a href="https://www.cloudarch.tech/categories/linux/">linux (2)</a></li>
     
-    <li>
-        <a href="https://www.cloudarch.tech/categories/others/">others(1)</a>
-    </li>
+    <li><a href="https://www.cloudarch.tech/categories/others/">others (1)</a></li>
     
-    <li>
-        <a href="https://www.cloudarch.tech/categories/python/">python(4)</a>
-    </li>
+    <li><a href="https://www.cloudarch.tech/categories/python/">python (4)</a></li>
     
-    <li>
-        <a href="https://www.cloudarch.tech/categories/virtualization/">virtualization(1)</a>
-    </li>
+    <li><a href="https://www.cloudarch.tech/categories/virtualization/">virtualization (1)</a></li>
     
 </ul>
     </section>
 
     <section class="widget">
-        <h3 class="widget-title">标签</h3>
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://www.cloudarch.tech/tags/docker/">docker</a>
     
     <a href="https://www.cloudarch.tech/tags/hugo/">hugo</a>
     
-    <a href="https://www.cloudarch.tech/tags/kubernetes/">kubernetes</a>
+    <a href="https://www.cloudarch.tech/tags/kubernetes/">Kubernetes</a>
     
-    <a href="https://www.cloudarch.tech/tags/linux/">linux</a>
+    <a href="https://www.cloudarch.tech/tags/linux/">Linux</a>
     
     <a href="https://www.cloudarch.tech/tags/python/">python</a>
     
-    <a href="https://www.cloudarch.tech/tags/shell/">shell</a>
+    <a href="https://www.cloudarch.tech/tags/shell/">Shell</a>
     
-    <a href="https://www.cloudarch.tech/tags/vmware/">vmware</a>
+    <a href="https://www.cloudarch.tech/tags/vmware/">VMware</a>
     
-    <a href="https://www.cloudarch.tech/tags/vsphere/">vsphere</a>
+    <a href="https://www.cloudarch.tech/tags/vsphere/">vSphere</a>
     
     <a href="https://www.cloudarch.tech/tags/%E7%9B%91%E6%8E%A7/">监控</a>
     
@@ -475,47 +542,9 @@ funcTest()
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
-    <div class="container" style="text-align:center">
-        &copy; 2019 <a href="https://www.cloudarch.tech">CloudArch By 季eddy</a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
-        <a href="https://github.com/bjhee/maupassant-hugo" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
-        
-    </div>
-
-    
-</footer>
-
-
-    <script type="text/javascript">
-    
-    (function(){
-        $("pre code").parent().addClass("line-numbers")
-    }())
-
-    window.MathJax = {
-        tex2jax: {
-            inlineMath: [ ['$','$'] ],
-            processEscapes: true
-        }
-    };
-    </script>
-    <script type="text/javascript" src="/js/prism.js" async="true"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
-
-
-
-<script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
-
 </body>
+
 </html>

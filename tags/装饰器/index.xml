@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>装饰器 on CloudArch</title>
@@ -6,11 +6,7 @@
     <description>Recent content in 装饰器 on CloudArch</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 01 Jan 2019 20:21:52 +0800</lastBuildDate>
-    
-	<atom:link href="https://www.cloudarch.tech/tags/%E8%A3%85%E9%A5%B0%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 01 Jan 2019 20:21:52 +0800</lastBuildDate><atom:link href="https://www.cloudarch.tech/tags/%E8%A3%85%E9%A5%B0%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python装饰器原理与使用</title>
       <link>https://www.cloudarch.tech/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/</link>

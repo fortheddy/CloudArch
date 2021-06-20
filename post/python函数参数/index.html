@@ -3,43 +3,47 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
 
     <title>python函数参数 | CloudArch</title>
     <meta property="og:title" content="python函数参数 - CloudArch">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2019-02-01T20:21:52&#43;08:00">
+    <meta property="article:published_time" content='2019-02-01T20:21:52&#43;08:00'>
         
         
-    <meta property="article:modified_time" content="2019-02-01T20:21:52&#43;08:00">
+    <meta property="article:modified_time" content='2019-02-01T20:21:52&#43;08:00'>
         
     <meta name="Keywords" content="python,golang,linux,VMware,虚拟化,docker,kubernetes,公有云,软件定义,SDN,devops,cloudera,hadoop">
     <meta name="description" content="python函数参数">
         
     <meta name="author" content="季eddy">
     <meta property="og:url" content="https://www.cloudarch.tech/post/python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-        <link rel="stylesheet" href="/css/prism.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
-    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
     
-
     
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
     
 </head>
 
+
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
@@ -76,79 +80,131 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-    <div class="container">
-        <div class="col-group">
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">python函数参数</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年2月1日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/python'>python</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="post-content">
+            <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#998;font-style:italic">#可传入任何参数</span>
+<span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">function</span>(<span style="color:#000;font-weight:bold">*</span>args,<span style="color:#000;font-weight:bold">**</span>kwargs):
+    <span style="color:#000;font-weight:bold">pass</span>
 
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    <article class="post">
-                        <header>
-                            <h1 class="post-title">python函数参数</h1>
-                        </header>
-                        <date class="post-meta meta-date">
-                            2019年2月1日
-                        </date>
-                        
-                        <div class="post-meta">
-                            <span>|</span>
-                            
-                                <span class="meta-category"><a href="https://www.cloudarch.tech/categories/python">python</a></span>
-                            
-                        </div>
-                        
-                        
-                        <div class="post-meta">
-                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
-                        </div>
-                        
-                        
-                        <div class="post-content">
-                            <pre><code class="language-python">#可传入任何参数
-def function(*args,**kwargs):
-    pass
+<span style="color:#998;font-style:italic"># 不定长参数，可传入多个参数，传入的值组成一个元组tuple</span>
+<span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">function2</span>(<span style="color:#000;font-weight:bold">*</span>args):
+    <span style="color:#000;font-weight:bold">pass</span>
 
-# 不定长参数，可传入多个参数，传入的值组成一个元组tuple
-def function2(*args):
-    pass
+<span style="color:#998;font-style:italic"># 传入的参数为多个关键字参数,组成一个字典dict</span>
+<span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">function3</span>(<span style="color:#000;font-weight:bold">**</span>kwargs):
+    <span style="color:#000;font-weight:bold">pass</span>
+function3(key1<span style="color:#000;font-weight:bold">=</span>a,key2<span style="color:#000;font-weight:bold">=</span>b,key3<span style="color:#000;font-weight:bold">=</span>c)
 
-# 传入的参数为多个关键字参数,组成一个字典dict
-def function3(**kwargs):
-    pass
-function3(key1=a,key2=b,key3=c)
+<span style="color:#998;font-style:italic"># 匿名函数Lamda</span>
+<span style="color:#998;font-style:italic"># lamda只能有一行</span>
+<span style="color:#998;font-style:italic"># lamda arg1,arg2,……argn:函数表达式</span>
+<span style="color:#0086b3">sum</span><span style="color:#000;font-weight:bold">=</span>lamda num1, num2:num1<span style="color:#000;font-weight:bold">+</span>num2
+<span style="color:#0086b3">print</span>(<span style="color:#0086b3">sum</span>(<span style="color:#099">1</span>,<span style="color:#099">2</span>))
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">func</span>(<span style="color:#000;font-weight:bold">*</span>arg, <span style="color:#000;font-weight:bold">**</span>kw):
+    <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> arg:
+        <span style="color:#000;font-weight:bold">for</span> k, v <span style="color:#000;font-weight:bold">in</span> kw<span style="color:#000;font-weight:bold">.</span>items():
+            <span style="color:#000;font-weight:bold">if</span> i <span style="color:#000;font-weight:bold">==</span> k:
+                <span style="color:#0086b3">print</span>(<span style="color:#d14">&#39;My name is </span><span style="color:#d14">{k}</span><span style="color:#d14">,I am </span><span style="color:#d14">{v}</span><span style="color:#d14"> years old.&#39;</span><span style="color:#000;font-weight:bold">.</span>format(k<span style="color:#000;font-weight:bold">=</span>k, v<span style="color:#000;font-weight:bold">=</span>v))
 
-# 匿名函数Lamda
-# lamda只能有一行
-# lamda arg1,arg2,……argn:函数表达式
-sum=lamda num1, num2:num1+num2
-print(sum(1,2))
-</code></pre>
+<span style="color:#0086b3">str</span> <span style="color:#000;font-weight:bold">=</span> [<span style="color:#d14">&#39;tom&#39;</span>,<span style="color:#d14">&#39;eddy&#39;</span>]
+kw <span style="color:#000;font-weight:bold">=</span> {<span style="color:#d14">&#39;eddy&#39;</span>: <span style="color:#099">18</span>, <span style="color:#d14">&#39;tom&#39;</span>: <span style="color:#099">20</span>}
 
-<pre><code class="language-python">def func(*arg, **kw):
-    for i in arg:
-        for k, v in kw.items():
-            if i == k:
-                print('My name is {k},I am {v} years old.'.format(k=k, v=v))
-
-str = ['tom','eddy']
-kw = {'eddy': 18, 'tom': 20}
-
-func(*str, **kw)
+func(<span style="color:#000;font-weight:bold">*</span><span style="color:#0086b3">str</span>, <span style="color:#000;font-weight:bold">**</span>kw)
 
 
-# 输出结果：
-# My name is tom,I am 20 years old.
-# My name is eddy,I am 18 years old.
-</code></pre>
+<span style="color:#998;font-style:italic"># 输出结果：</span>
+<span style="color:#998;font-style:italic"># My name is tom,I am 20 years old.</span>
+<span style="color:#998;font-style:italic"># My name is eddy,I am 18 years old.</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+        </div>
 
-                        </div>
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://www.cloudarch.tech">季eddy</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://www.cloudarch.tech/post/python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/">https://www.cloudarch.tech/post/python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
 
-                        
 
 
-                        
-                          
+        
 
 <div class="post-archive">
     <h2>See Also</h2>
@@ -167,19 +223,18 @@ func(*str, **kw)
     </ul>
 </div>
 
-                        
-                        
-                        <div class="post-meta meta-tags">
-                            
-                            <ul class="clearfix">
-                                
-                                <li><a href="https://www.cloudarch.tech/tags/python">python</a></li>
-                                
-                            </ul>
-                            
-                        </div>
-                    </article>
-                    
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/python'>python</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
     
 
     
@@ -194,103 +249,101 @@ func(*str, **kw)
       </script>
     </div>
     
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2021 <a href="https://www.cloudarch.tech">CloudArch By 季eddy</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
                 </div>
-            </div>
-            <div id="secondary">
+
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="https://www.baidu.com/s" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1" onsubmit="return buildQuery()">
+        <form id="search" action='https://www.cloudarch.tech/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
-      <input type="text" id="query" maxlength="20" placeholder="Search">
-      <input type="hidden" id="wd" name="wd" value="">
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://www.cloudarch.tech">
       <button type="submit" class="submit icon-search"></button>
 </form>
-
-
-<script>
-    function buildQuery(){
-        var queryString= document.getElementById('query').value;
-        var baseUrl = "https:\/\/www.cloudarch.tech";
-        
-        var url = baseUrl.replace(/^(https:|http:|)\/\//, "").replace(/\/$/, "");
-          
-        var wdElement = document.getElementById('wd');
-        wdElement.value= queryString + " site:" + url;  
-        
-        return true;
-    }
-</script>
-
     </section>
     
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
     
-    
-        
-    
-    
     <li>
-        <a href="https://www.cloudarch.tech/post/hugo&#43;github-pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="Hugo&#43;GitHub Pages搭建个人博客">Hugo&#43;GitHub Pages搭建个人博客</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2019年9月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/hugo&#43;github-pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="Hugo&#43;GitHub Pages搭建个人博客">Hugo&#43;GitHub Pages搭建个人博客</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/" title="python字符串内置方法">python字符串内置方法</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2019年2月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/" title="python字符串内置方法">python字符串内置方法</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" title="python函数参数">python函数参数</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2019年2月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" title="python函数参数">python函数参数</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/awk%E5%92%8Csed%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" title="AWK和SED文本处理常用命令汇总">AWK和SED文本处理常用命令汇总</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2019年1月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/awk%E5%92%8Csed%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/" title="AWK和SED文本处理常用命令汇总">AWK和SED文本处理常用命令汇总</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/" title="Python装饰器原理与使用">Python装饰器原理与使用</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2019年1月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/" title="Python装饰器原理与使用">Python装饰器原理与使用</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/" title="【转载】写给 VMware 用户看的 Kubernetes 扫盲贴">【转载】写给 VMware 用户看的 Kubernetes 扫盲贴</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2019年1月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/" title="【转载】写给 VMware 用户看的 Kubernetes 扫盲贴">【转载】写给 VMware 用户看的 Kubernetes 扫盲贴</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEprometheus-&#43;-grafana%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E5%B9%B3%E5%8F%B0/" title="安装配置Prometheus &#43; Grafana运维监控平台">安装配置Prometheus &#43; Grafana运维监控平台</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2018年1月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEprometheus-&#43;-grafana%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E5%B9%B3%E5%8F%B0/" title="安装配置Prometheus &#43; Grafana运维监控平台">安装配置Prometheus &#43; Grafana运维监控平台</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/" title="Docker基础原理">Docker基础原理</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2017年12月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/" title="Docker基础原理">Docker基础原理</a>
     </li>
     
     <li>
-        <a href="https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9python-package%E6%BA%90/" title="修改Python Package源">修改Python Package源</a><br>
-        <date class="post-meta meta-date" style="text-align: right">
-           2017年12月1日
-        </date>
+        <a href="https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9python-package%E6%BA%90/" title="修改Python Package源">修改Python Package源</a>
     </li>
     
 </ul>
@@ -299,51 +352,41 @@ func(*str, **kw)
     
 
     <section class="widget">
-        <h3 class="widget-title">分类</h3>
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li>
-        <a href="https://www.cloudarch.tech/categories/docker/">docker(2)</a>
-    </li>
+    <li><a href="https://www.cloudarch.tech/categories/docker/">docker (2)</a></li>
     
-    <li>
-        <a href="https://www.cloudarch.tech/categories/linux/">linux(2)</a>
-    </li>
+    <li><a href="https://www.cloudarch.tech/categories/linux/">linux (2)</a></li>
     
-    <li>
-        <a href="https://www.cloudarch.tech/categories/others/">others(1)</a>
-    </li>
+    <li><a href="https://www.cloudarch.tech/categories/others/">others (1)</a></li>
     
-    <li>
-        <a href="https://www.cloudarch.tech/categories/python/">python(4)</a>
-    </li>
+    <li><a href="https://www.cloudarch.tech/categories/python/">python (4)</a></li>
     
-    <li>
-        <a href="https://www.cloudarch.tech/categories/virtualization/">virtualization(1)</a>
-    </li>
+    <li><a href="https://www.cloudarch.tech/categories/virtualization/">virtualization (1)</a></li>
     
 </ul>
     </section>
 
     <section class="widget">
-        <h3 class="widget-title">标签</h3>
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://www.cloudarch.tech/tags/docker/">docker</a>
     
     <a href="https://www.cloudarch.tech/tags/hugo/">hugo</a>
     
-    <a href="https://www.cloudarch.tech/tags/kubernetes/">kubernetes</a>
+    <a href="https://www.cloudarch.tech/tags/kubernetes/">Kubernetes</a>
     
-    <a href="https://www.cloudarch.tech/tags/linux/">linux</a>
+    <a href="https://www.cloudarch.tech/tags/linux/">Linux</a>
     
     <a href="https://www.cloudarch.tech/tags/python/">python</a>
     
-    <a href="https://www.cloudarch.tech/tags/shell/">shell</a>
+    <a href="https://www.cloudarch.tech/tags/shell/">Shell</a>
     
-    <a href="https://www.cloudarch.tech/tags/vmware/">vmware</a>
+    <a href="https://www.cloudarch.tech/tags/vmware/">VMware</a>
     
-    <a href="https://www.cloudarch.tech/tags/vsphere/">vsphere</a>
+    <a href="https://www.cloudarch.tech/tags/vsphere/">vSphere</a>
     
     <a href="https://www.cloudarch.tech/tags/%E7%9B%91%E6%8E%A7/">监控</a>
     
@@ -365,47 +408,9 @@ func(*str, **kw)
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
-    <div class="container" style="text-align:center">
-        &copy; 2019 <a href="https://www.cloudarch.tech">CloudArch By 季eddy</a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
-        <a href="https://github.com/bjhee/maupassant-hugo" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
-        
-    </div>
-
-    
-</footer>
-
-
-    <script type="text/javascript">
-    
-    (function(){
-        $("pre code").parent().addClass("line-numbers")
-    }())
-
-    window.MathJax = {
-        tex2jax: {
-            inlineMath: [ ['$','$'] ],
-            processEscapes: true
-        }
-    };
-    </script>
-    <script type="text/javascript" src="/js/prism.js" async="true"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
-
-
-
-<script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
-
 </body>
+
 </html>
