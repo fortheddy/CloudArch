@@ -232,10 +232,8 @@
 outer()
 </code></pre><p>闭包的<code>__closure__</code>显示为<code>cell</code></p>
 <p>
-    
-    
-        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/user/splintereddy.github.io/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/e9122198-1bf3-41d3-ae9c-c4581946bfb0.png">
-            <img class="mx-auto" alt="e9122198-1bf3-41d3-ae9c-c4581946bfb0" src="https://cdn.jsdelivr.net/gh/user/splintereddy.github.io/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/e9122198-1bf3-41d3-ae9c-c4581946bfb0.png" />
+        <a data-fancybox="gallery" href="python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/e9122198-1bf3-41d3-ae9c-c4581946bfb0.png">
+            <img class="mx-auto" alt="e9122198-1bf3-41d3-ae9c-c4581946bfb0" src="python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/e9122198-1bf3-41d3-ae9c-c4581946bfb0.png" />
         </a>
     </p>
 <h2 id="装饰器">装饰器</h2>
@@ -283,10 +281,8 @@ func_test()
 #### ####
 </code></pre><p>上面的例子的执行结果：</p>
 <p>
-    
-    
-        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/user/splintereddy.github.io/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/QQ%e6%8b%bc%e9%9f%b3%e6%88%aa%e5%9b%be20190828234648.png">
-            <img class="mx-auto" alt="QQ拼音截图20190828234648" src="https://cdn.jsdelivr.net/gh/user/splintereddy.github.io/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/QQ%e6%8b%bc%e9%9f%b3%e6%88%aa%e5%9b%be20190828234648.png" />
+        <a data-fancybox="gallery" href="python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/QQ%e6%8b%bc%e9%9f%b3%e6%88%aa%e5%9b%be20190828234648.png">
+            <img class="mx-auto" alt="QQ拼音截图20190828234648" src="python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/QQ%e6%8b%bc%e9%9f%b3%e6%88%aa%e5%9b%be20190828234648.png" />
         </a>
     </p>
 <p>可以发现原函数<code>func_test</code>被装饰以后<code>func.__name__</code>值变成了<code>inner</code>，如果想要被装饰以后函数的<code>.__name__</code>仍为<code>func_test</code>则需要通过下面的方式：</p>
@@ -318,10 +314,8 @@ func_test()
 print('函数名为：', func_test.__name__)
 </code></pre><p>运行结果：</p>
 <p>
-    
-    
-        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/user/splintereddy.github.io/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/ec0c9e6a-b22b-441d-99c0-6b78edf35386.png">
-            <img class="mx-auto" alt="ec0c9e6a-b22b-441d-99c0-6b78edf35386" src="https://cdn.jsdelivr.net/gh/user/splintereddy.github.io/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/ec0c9e6a-b22b-441d-99c0-6b78edf35386.png" />
+        <a data-fancybox="gallery" href="python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/ec0c9e6a-b22b-441d-99c0-6b78edf35386.png">
+            <img class="mx-auto" alt="ec0c9e6a-b22b-441d-99c0-6b78edf35386" src="python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/ec0c9e6a-b22b-441d-99c0-6b78edf35386.png" />
         </a>
     </p>
 <p>上面的代码就是装饰器的一般形式。</p>
@@ -333,10 +327,8 @@ def funcTest():
 
 funcTest()
 </code></pre><p>
-    
-    
-        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/user/splintereddy.github.io/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/792eec98-4d32-491f-bca4-652b81640b6f.png">
-            <img class="mx-auto" alt="792eec98-4d32-491f-bca4-652b81640b6f" src="https://cdn.jsdelivr.net/gh/user/splintereddy.github.io/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/792eec98-4d32-491f-bca4-652b81640b6f.png" />
+        <a data-fancybox="gallery" href="python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/792eec98-4d32-491f-bca4-652b81640b6f.png">
+            <img class="mx-auto" alt="792eec98-4d32-491f-bca4-652b81640b6f" src="python%e8%a3%85%e9%a5%b0%e5%99%a8%e5%8e%9f%e7%90%86%e4%b8%8e%e4%bd%bf%e7%94%a8.assets/792eec98-4d32-491f-bca4-652b81640b6f.png" />
         </a>
     </p>
 
