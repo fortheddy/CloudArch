@@ -5,113 +5,49 @@
     <link>https://www.cloudarch.tech/</link>
     <description>Recent content on CloudArch</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sun, 01 Sep 2019 20:21:52 +0800</lastBuildDate><atom:link href="https://www.cloudarch.tech/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language><atom:link href="https://www.cloudarch.tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hugo&#43;GitHub Pages搭建个人博客</title>
-      <link>https://www.cloudarch.tech/post/hugo&#43;github-pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
-      <pubDate>Sun, 01 Sep 2019 20:21:52 +0800</pubDate>
+      <title></title>
+      <link>https://www.cloudarch.tech/archives.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cloudarch.tech/post/hugo&#43;github-pages%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
-      <description>1、安装配置Hugo Hugo是一个Go语言开发的静态网站生成器，可以非常快速的将纯文本转化为静态网站和博客。类似的工具还有Hexo（基于Node.js）和Jekyll（基于Ruby）等。Hugo的优点是运行速度快，不需要安装Node.js等运行环境，使用简单。 Hugo是Githu</description>
-    </item>
-    
-    <item>
-      <title>python字符串内置方法</title>
-      <link>https://www.cloudarch.tech/post/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/</link>
-      <pubDate>Fri, 01 Feb 2019 20:21:53 +0800</pubDate>
-      
-      <guid>https://www.cloudarch.tech/post/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/</guid>
-      <description>strip()函数用于清除字符串首尾的所有空格，也可以用来清除首尾的指定字符，返回值为对字符串进行操作后产生的新字符串（原字符串仍然存在未被修改）。 split()函数用来根据分隔符（如空格，“/” 或其他指定符号）将字符串进行切分，返回值为包含分割后字符串的list。分隔符默认为无</description>
-    </item>
-    
-    <item>
-      <title>python函数参数</title>
-      <link>https://www.cloudarch.tech/post/python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/</link>
-      <pubDate>Fri, 01 Feb 2019 20:21:52 +0800</pubDate>
-      
-      <guid>https://www.cloudarch.tech/post/python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/</guid>
-      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 #可传入任何参数 def function(*args,**kwargs): pass # 不定长参数，可传入多个参数，传入的值组成一个元组tuple def function2(*args): pass # 传入的参数为多个关键字参数,组成一个字典dict def function3(**kwargs): pass function3(key1=a,key2=b,key3=c) # 匿名函数Lamda # lamda只能有一行 # lamda arg1,arg2,……argn:函数表达式 sum=lamda num1, num2:num1+num2 print(sum(1,2))</description>
-    </item>
-    
-    <item>
-      <title>AWK和SED文本处理常用命令汇总</title>
-      <link>https://www.cloudarch.tech/post/awk%E5%92%8Csed%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/</link>
-      <pubDate>Tue, 01 Jan 2019 20:21:52 +0800</pubDate>
-      
-      <guid>https://www.cloudarch.tech/post/awk%E5%92%8Csed%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/</guid>
-      <description>使用awk过滤输出： docker ps|awk &#39;NR!=1 {print $1}&#39; # 作用：过滤docker ps输出的结果，只显示第一列Container ID的值，且不显示第一行”Container ID“ # NR!=1表示过滤掉第一行，NR==1表示只匹配第一行。END表示最后一行 # awk默认以空格为分隔符对每一行进行切片，$0表示所</description>
-    </item>
-    
-    <item>
-      <title>Python装饰器原理与使用</title>
-      <link>https://www.cloudarch.tech/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/</link>
-      <pubDate>Tue, 01 Jan 2019 20:21:52 +0800</pubDate>
-      
-      <guid>https://www.cloudarch.tech/post/python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E4%BD%BF%E7%94%A8/</guid>
-      <description>闭包 闭包的定义：嵌套函数，且内部函数调用了外部函数的变量时，就构成了闭包。 下面的例子就是一个函数闭包： def outer(n): a = n def inner(): print(a) print(inner.__closure__) outer() 闭包的__closure__显示为cell 装饰器 装饰器其实就是闭包的一种应用。装饰器的作用是不改变函数的调用方式，但要在原来的函数前后添加功能。 装饰器的形式：</description>
+      <guid>https://www.cloudarch.tech/archives.html</guid>
+      <description>title: &amp;ldquo;归档&amp;rdquo; description: 季eddy的个人博客，专注于云计算、系统架构、SRE和DevOps等领域知识分享 type: archives</description>
     </item>
     
     <item>
       <title>【转载】写给 VMware 用户看的 Kubernetes 扫盲贴</title>
-      <link>https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/</link>
-      <pubDate>Tue, 01 Jan 2019 20:21:52 +0800</pubDate>
+      <link>https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99-VMware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-Kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99-vmware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4/</guid>
+      <guid>https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99-VMware-%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84-Kubernetes-%E6%89%AB%E7%9B%B2%E8%B4%B4.html</guid>
       <description>容器技术是最近几年非常热门的技术，它似乎就是为云端的应用量身定制的，所以它也被贴上了云原生应用 (Cloud Native Application) 技术的标签。目前最为流行的容器管理调度平台是 Kubernetes (缩写为 K8s)，是 Google 为支持大批量容器而开发的企业级运行平台，可以支持负载均衡、高可靠等生产级功能。VMware 在 VMworld 2017 上也宣布了跟 Pi</description>
     </item>
     
     <item>
-      <title>安装配置Prometheus &#43; Grafana运维监控平台</title>
-      <link>https://www.cloudarch.tech/post/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEprometheus-&#43;-grafana%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E5%B9%B3%E5%8F%B0/</link>
-      <pubDate>Mon, 01 Jan 2018 20:21:52 +0800</pubDate>
-      
-      <guid>https://www.cloudarch.tech/post/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEprometheus-&#43;-grafana%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E5%B9%B3%E5%8F%B0/</guid>
-      <description>安装配置Prometheus + Grafana运维监控平台 一、安装配置Prometheus 1、下载Prometheus和node_exporter安装包并解压 wget https://github.com/prometheus/prometheus/releases/download/v2.8.1/prometheus-2.8.1.linux-amd64.tar.gz tar -xvzf prometheus-2.8.1.linux-amd64.tar.gz wget https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz tar -zxvf node_exporter-0.17.0.linux-amd64.tar.gz 2、修改prometheus.yml文件 scrape_configs: # The job name is added as a label `job=&amp;lt;job_name&amp;gt;` to any timeseries scraped from this config. - job_name: &#39;prometheus&#39; # metrics_path defaults to &#39;/metrics&#39; # scheme defaults to &#39;http&#39;. static_configs:</description>
-    </item>
-    
-    <item>
-      <title>Docker基础原理</title>
-      <link>https://www.cloudarch.tech/post/docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/</link>
-      <pubDate>Fri, 01 Dec 2017 20:21:52 +0800</pubDate>
-      
-      <guid>https://www.cloudarch.tech/post/docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/</guid>
-      <description>Docker基础原理 Docker与传统虚拟化的区别： 虚拟化是硬件资源划分的方案，采用Intel VT-x等硬件虚拟化技术；Docker是操作系统级别的虚拟化，Docker没有传统虚拟化中的Hypervisor层，其虚拟化技术是基于内核的Cgroup和Namespace技术。 Dock</description>
-    </item>
-    
-    <item>
-      <title>修改Python Package源</title>
-      <link>https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9python-package%E6%BA%90/</link>
-      <pubDate>Fri, 01 Dec 2017 20:21:52 +0800</pubDate>
-      
-      <guid>https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9python-package%E6%BA%90/</guid>
-      <description>修改Python Package源 国内开源软件镜像： 阿里巴巴开源软件镜像 https://opsx.alibaba.com/mirror 清华大学开源软件镜像 https://mirrors.tuna.tsinghua.edu.cn/ 中国科技大学开源镜像 https://mirrors.ustc.edu.cn/ 使用pip安装python包时使用下面的命令修改国内镜像源： pip config set global.index-url https://pypi.douban.com/simple/ 可以将源替换成https://mirrors.aliyun.com/pypi/simple等 在</description>
-    </item>
-    
-    <item>
-      <title>关于</title>
-      <link>https://www.cloudarch.tech/about/</link>
+      <title>AWK和SED文本处理常用命令汇总</title>
+      <link>https://www.cloudarch.tech/post/awk%E5%92%8Csed%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cloudarch.tech/about/</guid>
-      <description>专注于云计算架构与运维开发领域的菜鸡。</description>
+      <guid>https://www.cloudarch.tech/post/awk%E5%92%8Csed%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB.html</guid>
+      <description>使用awk过滤输出： 1 2 3 4 5 6 docker ps|awk &amp;#39;NR!=1 {print $1}&amp;#39; # 作用：过滤docker ps输出的结果，只显示第一列Container ID的值，且不显示第一行”Container ID“ # NR!=1表示过滤掉第一行，NR==1表示只匹配第一行。END表示最后一行 # awk默认以空格为分隔符对每一行进行切片</description>
     </item>
     
     <item>
-      <title>归档</title>
-      <link>https://www.cloudarch.tech/archives/</link>
+      <title>关于CloudArch</title>
+      <link>https://www.cloudarch.tech/about.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cloudarch.tech/archives/</guid>
+      <guid>https://www.cloudarch.tech/about.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>搜索</title>
-      <link>https://www.cloudarch.tech/search/</link>
+      <link>https://www.cloudarch.tech/search.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cloudarch.tech/search/</guid>
+      <guid>https://www.cloudarch.tech/search.html</guid>
       <description></description>
     </item>
     
