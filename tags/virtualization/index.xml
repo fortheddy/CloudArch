@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>virtualization on CloudArch</title>
-    <link>https://www.cloudarch.tech/tags/virtualization.html</link>
+    <link>https://www.cloudarch.tech/tags/virtualization/</link>
     <description>Recent content in virtualization on CloudArch</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language><atom:link href="https://www.cloudarch.tech/tags/virtualization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker基础原理</title>
-      <link>https://www.cloudarch.tech/post/Docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86.html</link>
+      <link>https://www.cloudarch.tech/post/Docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cloudarch.tech/post/Docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86.html</guid>
+      <guid>https://www.cloudarch.tech/post/Docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86/</guid>
       <description>Docker与传统虚拟化的区别： 虚拟化是硬件资源划分的方案，采用Intel VT-x等硬件虚拟化技术；Docker是操作系统级别的虚拟化，Docker没有传统虚拟化中的Hypervisor层，其虚拟化技术是基于内核的Cgroup和Namespace技术。 Docker容器与主机共享操</description>
     </item>
     
