@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>文本处理 on CloudArch</title>
+    <link>https://www.cloudarch.tech/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86.html</link>
+    <description>Recent content in 文本处理 on CloudArch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language><atom:link href="https://www.cloudarch.tech/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWK和SED常用命令</title>
+      <link>https://www.cloudarch.tech/post/AWK%E5%92%8CSED%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.cloudarch.tech/post/AWK%E5%92%8CSED%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</guid>
+      <description>使用awk过滤输出： 1 2 3 4 5 6 7 docker ps|awk &amp;#39;NR!=1 {print $1}&amp;#39; # 作用：过滤docker ps输出的结果，只显示第一列Container ID的值，且不显示第一行”Container ID“ # NR!=1表示过滤掉第一行，NR==1表示只匹配第一行。END表示最后一行 # awk默认以空格为分隔符对每一行进行切</description>
+    </item>
+    
+    <item>
+      <title>Python字符串内置方法</title>
+      <link>https://www.cloudarch.tech/post/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.cloudarch.tech/post/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95.html</guid>
+      <description>strip()函数用于清除字符串首尾的所有空格，也可以用来清除首尾的指定字符，返回值为对字符串进行操作后产生的新字符串（原字符串仍然存在未被修改）。 split()函数用来根据分隔符（如空格，“/” 或其他指定符号）将字符串进行切分，返回值为包含分割后字符串的list。分隔符默认为无</description>
+    </item>
+    
+  </channel>
+</rss>

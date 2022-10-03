@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on CloudArch</title>
+    <link>https://www.cloudarch.tech/categories/python.html</link>
+    <description>Recent content in python on CloudArch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language><atom:link href="https://www.cloudarch.tech/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python函数参数</title>
+      <link>https://www.cloudarch.tech/post/Python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.cloudarch.tech/post/Python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0.html</guid>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 #可传入任何参数 def function(*args,**kwargs): pass # 不定长参数，可传入多个参数，传入的值组成一个元组tuple def function2(*args): pass # 传入的参数为多个关键字参数,组成一个字典dict def function3(**kwargs): pass function3(key1=a,key2=b,key3=c) # 匿名函数Lamda # lamda只能有一行 # lamda arg1,arg2,……argn:函数表达式 sum=lamda num1, num2:num1+num2 print(sum(1,2))</description>
+    </item>
+    
+    <item>
+      <title>修改Python镜像源</title>
+      <link>https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9Python%E9%95%9C%E5%83%8F%E6%BA%90.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9Python%E9%95%9C%E5%83%8F%E6%BA%90.html</guid>
+      <description>国内常用的Python镜像源地址 阿里云Python镜像源：https://mirrors.aliyun.com/pypi/simple 清华大学Python镜像源：https://mirrors.tuna.tsinghua.edu.cn/pypi/simple 豆瓣Python镜像源</description>
+    </item>
+    
+  </channel>
+</rss>
