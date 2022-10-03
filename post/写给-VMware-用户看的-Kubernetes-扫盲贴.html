@@ -235,7 +235,7 @@
         <div class="post-content">
             <p>容器技术是最近几年非常热门的技术，它似乎就是为云端的应用量身定制的，所以它也被贴上了云原生应用 (Cloud Native  Application) 技术的标签。目前最为流行的容器管理调度平台是 Kubernetes (缩写为 K8s)，是 Google  为支持大批量容器而开发的企业级运行平台，可以支持负载均衡、高可靠等生产级功能。VMware 在 VMworld 2017 上也宣布了跟  Pivotal、Google 合作开发的 VMware Pivotal Container Service，这是一个商用的 K8s 平台，简称  PKS (中间的K代表 Kubernetes)。</p>
 <p>我们专门为 VMware 用户写了这篇文章，利用你所熟悉的 vSphere 平台来跟 K8s 作一个类比，从而帮助你快速了解 K8s。</p>
-<p>![kubernetes-architecture](写给 VMware 用户看的 Kubernetes 扫盲贴.assets/kubernetes-architecture-1662887597831-2.png)</p>
+<p>![kubernetes-architecture](写给 VMware 用户看的 Kubernetes 扫盲贴.assets/kubernetes-architecture.png)</p>
 <p>那么到底什么是 Kubernetes 呢? 简单来说，K8s 和容器的关系就相当于vSphere和虚机的关系。在 VMware  发展早期的时候，那时候只有 VMware Workstation，后来出现了基于vCenter 和ESXi 的VI/vSphere  体系架构，从而使虚拟化步入了数据中心。同样的，容器一开始的时候只有一个简单的容器引擎 Docker，K8s  的出现为容器提供了一个生产级的运行环境。把 vSphere 和 K8s  平台肩并肩放在一起比较的话，你会发现它们的概念有很多类似之处，这可以帮助我们很快地理解 K8s 技术的各种细节。</p>
 <p>![p2p3](写给 VMware 用户看的 Kubernetes 扫盲贴.assets/p2p3.png)</p>
 <p>就像 vSphere 平台上的 vCenter 和 ESXi 主机， K8s 平台上也有对应的概念：Master 和节点 (node)，  Master 起到的作用就跟 vCenter 一样，对整个 K8s 集群进行管理，它也是工作负载管理 API 的访问入口。跟 ESXi  主机对应的就是K8s节点，节点是 K8s 集群中的计算资源，容器就是运行在节点上，节点可以是虚机或者物理服务器。K8s 也有一个类似于  vCenter DB 的数据库 “etcd”，它以的“键-值”方式存储了整个集群的配置和状态。</p>
@@ -249,7 +249,7 @@
 <h3 id="系统配置">系统配置</h3>
 <p>K8s 可以通过一个YAML (Yet Another Markup Language) 文件来定义和描述 K8s  集群的配置和状态，然后就可以基于该文件创建整个 K8s 集群，K8s 会尽力地保持集群运行在指定的状态。例如，如果你指定了某一个 Pod  要有4个副本，K8s 就会监控所有这些 Pod 的运行，如果有任何一个 Pod 工作异常的话，它就会设法修复这个状态，实在不行的话就另启一个  Pod 副本。</p>
 <p>要理解 YAML 配置文件的话，你可以把它对应为虚机的 .VMX 文件，或是 Virtual Appliance 的 .OVF 文件。当然，YAML 配置文件在 K8s 中不仅用于定义集群，也用于定义其他的组件，如： 副本集合、服务、部署等。</p>
-<p>![kubernetes-pods](写给 VMware 用户看的 Kubernetes 扫盲贴.assets/kubernetes-pods-1662887889410-8.png)</p>
+<p>![kubernetes-pods](写给 VMware 用户看的 Kubernetes 扫盲贴.assets/kubernetes-pods.png)</p>
 <h3 id="虚拟集群">虚拟集群</h3>
 <p>vSphere 中为了管理资源的分配专门有一个“资源池 (Resource  Pool)”的概念，就像是在物理集群中划分出了一些小的虚拟集群，vSphere 利用资源池来控制资源的分配。K8s  也有类似的概念叫“namespaces”，namespace 的主要用途是创建多租户环境，也可以在上面指定资源配额 (Resource  Quota) 。</p>
 <p>![kubernetes-namespaces](写给 VMware 用户看的 Kubernetes 扫盲贴.assets/kubernetes-namespaces.png)</p>
@@ -515,17 +515,13 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://www.cloudarch.tech/categories/Linux.html">Linux (1)</a></li>
+    <li><a href="https://www.cloudarch.tech/categories/docker.html">docker (2)</a></li>
     
-    <li><a href="https://www.cloudarch.tech/categories/docker.html">docker (1)</a></li>
-    
-    <li><a href="https://www.cloudarch.tech/categories/Linux.html">Linux (1)</a></li>
+    <li><a href="https://www.cloudarch.tech/categories/linux.html">linux (2)</a></li>
     
     <li><a href="https://www.cloudarch.tech/categories/python.html">python (2)</a></li>
     
     <li><a href="https://www.cloudarch.tech/categories/virtualization.html">virtualization (1)</a></li>
-    
-    <li><a href="https://www.cloudarch.tech/categories/%E5%AE%B9%E5%99%A8.html">容器 (1)</a></li>
     
 </ul>
     </section>
