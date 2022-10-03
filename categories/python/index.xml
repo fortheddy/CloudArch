@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on CloudArch</title>
+    <link>https://www.cloudarch.tech/categories/python.html</link>
+    <description>Recent content in python on CloudArch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language><atom:link href="https://www.cloudarch.tech/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python函数参数</title>
+      <link>https://www.cloudarch.tech/post/Python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.cloudarch.tech/post/Python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0.html</guid>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 #可传入任何参数 def function(*args,**kwargs): pass # 不定长参数，可传入多个参数，传入的值组成一个元组tuple def function2(*args): pass # 传入的参数为多个关键字参数,组成一个字典dict def function3(**kwargs): pass function3(key1=a,key2=b,key3=c) # 匿名函数Lamda # lamda只能有一行 # lamda arg1,arg2,……argn:函数表达式 sum=lamda num1, num2:num1+num2 print(sum(1,2))</description>
+    </item>
+    
+    <item>
+      <title>Python字符串内置方法</title>
+      <link>https://www.cloudarch.tech/post/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.cloudarch.tech/post/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95.html</guid>
+      <description>strip()函数用于清除字符串首尾的所有空格，也可以用来清除首尾的指定字符，返回值为对字符串进行操作后产生的新字符串（原字符串仍然存在未被修改）。 split()函数用来根据分隔符（如空格，“/” 或其他指定符号）将字符串进行切分，返回值为包含分割后字符串的list。分隔符默认为无</description>
+    </item>
+    
+    <item>
+      <title>Python装饰器原理</title>
+      <link>https://www.cloudarch.tech/post/Python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.cloudarch.tech/post/Python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86.html</guid>
+      <description>闭包 闭包的定义：嵌套函数，且内部函数调用了外部函数的变量时，就构成了闭包。 下面的例子就是一个函数闭包： def outer(n): a = n def inner(): print(a) print(inner.__closure__) outer() 闭包的__closure__显示为cell ] 装饰器 装饰器其实就是闭包的一种应用。装饰器的作用是不改变函数的调用方式，但要在原来的函数前后添加功能。 装饰器的形式</description>
+    </item>
+    
+    <item>
+      <title>修改Python镜像源</title>
+      <link>https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9Python%E9%95%9C%E5%83%8F%E6%BA%90.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9Python%E9%95%9C%E5%83%8F%E6%BA%90.html</guid>
+      <description>国内常用的Python镜像源地址 阿里云Python镜像源：https://mirrors.aliyun.com/pypi/simple 清华大学Python镜像源：https://mirrors.tuna.tsinghua.edu.cn/pypi/simple 豆瓣Python镜像源</description>
+    </item>
+    
+  </channel>
+</rss>

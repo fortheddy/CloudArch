@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>【转载】写给VMware用户看的Kubernetes扫盲贴 | CloudArch</title>
+    <meta property="og:title" content="【转载】写给VMware用户看的Kubernetes扫盲贴 - CloudArch">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="SRE,云计算,虚拟化,容器,Docker,系统架构,DevOps,golang,python,linux,k8s,vmware">
+    <meta name="description" content="【转载】写给VMware用户看的Kubernetes扫盲贴">
+        
+    <meta name="author" content="季eddy">
+    <meta property="og:url" content="https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99VMware%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84Kubernetes%E6%89%AB%E7%9B%B2%E8%B4%B4.html">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://www.cloudarch.tech">
+                        CloudArch
+                    </a>
+                
+                <p class="description">专注于云计算、系统架构、SRE和DevOps等领域知识分享</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://www.cloudarch.tech">首页</a>
+                    
+                    <a  href="https://www.cloudarch.tech/virtualization/" title="虚拟化">虚拟化</a>
+                    
+                    <a  href="https://www.cloudarch.tech/docker/" title="容器">容器</a>
+                    
+                    <a  href="https://www.cloudarch.tech/cloud/" title="云计算">云计算</a>
+                    
+                    <a  href="https://www.cloudarch.tech/python/" title="python">python</a>
+                    
+                    <a  href="https://www.cloudarch.tech/go/" title="GoLang">GoLang</a>
+                    
+                    <a  href="https://www.cloudarch.tech/linux/" title="Linux">Linux</a>
+                    
+                    <a  href="https://www.cloudarch.tech/other/" title="碎念">碎念</a>
+                    
+                    <a  href="https://www.cloudarch.tech/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://www.cloudarch.tech/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#工作负载">工作负载</a></li>
+        <li><a href="#系统配置">系统配置</a></li>
+        <li><a href="#虚拟集群">虚拟集群</a></li>
+        <li><a href="#资源管理">资源管理</a></li>
+        <li><a href="#工作负载标记">工作负载标记</a></li>
+        <li><a href="#计算冗余">计算冗余</a></li>
+        <li><a href="#负载均衡">负载均衡</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if (leftPos < 220) {
+                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+
+        if ($("#TableOfContents").children().length < 1) {
+            $(".post-toc").remove();
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">【转载】写给VMware用户看的Kubernetes扫盲贴</h1>
+        </header>
+        <date class="post-meta meta-date">
+            1年1月1日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category">
+                <a href='/categories/docker' target="_blank">docker</a>
+            </span>
+            
+            <span class="meta-category">
+                <a href='/categories/virtualization' target="_blank">virtualization</a>
+            </span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <p>容器技术是最近几年非常热门的技术，它似乎就是为云端的应用量身定制的，所以它也被贴上了云原生应用 (Cloud Native  Application) 技术的标签。目前最为流行的容器管理调度平台是 Kubernetes (缩写为 K8s)，是 Google  为支持大批量容器而开发的企业级运行平台，可以支持负载均衡、高可靠等生产级功能。VMware 在 VMworld 2017 上也宣布了跟  Pivotal、Google 合作开发的 VMware Pivotal Container Service，这是一个商用的 K8s 平台，简称  PKS (中间的K代表 Kubernetes)。</p>
+<p>我们专门为 VMware 用户写了这篇文章，利用你所熟悉的 vSphere 平台来跟 K8s 作一个类比，从而帮助你快速了解 K8s。</p>
+<p>
+        <a data-fancybox="gallery" href="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-architecture.png">
+            <img class="mx-auto" alt="kubernetes-architecture" src="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-architecture.png" />
+        </a>
+    </p>
+<p>那么到底什么是 Kubernetes 呢? 简单来说，K8s 和容器的关系就相当于vSphere和虚机的关系。在 VMware  发展早期的时候，那时候只有 VMware Workstation，后来出现了基于vCenter 和ESXi 的VI/vSphere  体系架构，从而使虚拟化步入了数据中心。同样的，容器一开始的时候只有一个简单的容器引擎 Docker，K8s  的出现为容器提供了一个生产级的运行环境。把 vSphere 和 K8s  平台肩并肩放在一起比较的话，你会发现它们的概念有很多类似之处，这可以帮助我们很快地理解 K8s 技术的各种细节。</p>
+<p>
+        <a data-fancybox="gallery" href="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/p2p3.png">
+            <img class="mx-auto" alt="p2p3" src="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/p2p3.png" />
+        </a>
+    </p>
+<p>就像 vSphere 平台上的 vCenter 和 ESXi 主机， K8s 平台上也有对应的概念：Master 和节点 (node)，  Master 起到的作用就跟 vCenter 一样，对整个 K8s 集群进行管理，它也是工作负载管理 API 的访问入口。跟 ESXi  主机对应的就是K8s节点，节点是 K8s 集群中的计算资源，容器就是运行在节点上，节点可以是虚机或者物理服务器。K8s 也有一个类似于  vCenter DB 的数据库 “etcd”，它以的“键-值”方式存储了整个集群的配置和状态。</p>
+<p>
+        <a data-fancybox="gallery" href="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-system.png">
+            <img class="mx-auto" alt="kubernetes-system" src="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-system.png" />
+        </a>
+    </p>
+<p>跟 vSphere 不同的是，K8s Master上也能运行容器负载，当然 vCenter Server 上是不运行虚机的。虽然 K8s  Master 也是一种计算资源，但是一般只在上面运行系统管理相关的容器应用，普通的应用负载不应该放在 Master 上。</p>
+<p>vSphere 有GUI 管理界面 Web Client 和命令行管理接口 vCLI 和 Power CLI，K8s 也提供了GUI  界面或命令行来管理 K8s 集群。下面截屏是使用命令 “kubectl.exe” 来管理K8s 集群的例子，我们可以看到这个集群有一个  Master (vkubemaster007) 和4个节点 (vkubemode017~18)，K8s  的版本是v1.6.5，节点上的操作系统是Ubuntu 16.04。</p>
+<p>
+        <a data-fancybox="gallery" href="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-command-line.png">
+            <img class="mx-auto" alt="kubernetes-command-line" src="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-command-line.png" />
+        </a>
+    </p>
+<h3 id="工作负载">工作负载</h3>
+<p>vSphere 中的工作负载调度单位是虚机， K8s 中的调度单位是Pod；一台ESXi 主机上可以运行多个虚机，一个 K8s  节点上也可以运行多个 Pod，每个 Pod 都有一个独立的 IP 地址来跟其他的 Pod 相通讯。在vSphere  环境中，应用运行在虚机的操作系统中，K8s 平台上应用运行在容器里；一个虚机中只能运行一个操作系统实例，而一个 Pod  中可以运行多个容器实例。K8s 会考虑到 Pod 的关联性而把 Pod  中的容器实例运行在同一个节点上，从而让他们共享同一个运行环境；一般是把一个应用和它相关的辅助模块设计在同一个 Pod  中，然后作为一个整体来进行调度运行。</p>
+<p>
+        <a data-fancybox="gallery" href="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-pods.png">
+            <img class="mx-auto" alt="kubernetes-pods" src="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-pods.png" />
+        </a>
+    </p>
+<h3 id="系统配置">系统配置</h3>
+<p>K8s 可以通过一个YAML (Yet Another Markup Language) 文件来定义和描述 K8s  集群的配置和状态，然后就可以基于该文件创建整个 K8s 集群，K8s 会尽力地保持集群运行在指定的状态。例如，如果你指定了某一个 Pod  要有4个副本，K8s 就会监控所有这些 Pod 的运行，如果有任何一个 Pod 工作异常的话，它就会设法修复这个状态，实在不行的话就另启一个  Pod 副本。</p>
+<p>要理解 YAML 配置文件的话，你可以把它对应为虚机的 .VMX 文件，或是 Virtual Appliance 的 .OVF 文件。当然，YAML 配置文件在 K8s 中不仅用于定义集群，也用于定义其他的组件，如： 副本集合、服务、部署等。</p>
+<p>
+        <a data-fancybox="gallery" href="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-pods.png">
+            <img class="mx-auto" alt="kubernetes-pods" src="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-pods.png" />
+        </a>
+    </p>
+<h3 id="虚拟集群">虚拟集群</h3>
+<p>vSphere 中为了管理资源的分配专门有一个“资源池 (Resource  Pool)”的概念，就像是在物理集群中划分出了一些小的虚拟集群，vSphere 利用资源池来控制资源的分配。K8s  也有类似的概念叫“namespaces”，namespace 的主要用途是创建多租户环境，也可以在上面指定资源配额 (Resource  Quota) 。</p>
+<p>
+        <a data-fancybox="gallery" href="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-namespaces.png">
+            <img class="mx-auto" alt="kubernetes-namespaces" src="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-namespaces.png" />
+        </a>
+    </p>
+<h3 id="资源管理">资源管理</h3>
+<p>vSphere 需要指定每一个 Resource Pool 的资源分配限额，K8s 可以在 namespace 上设置资源配额 (Resource Quotas) 来控制资源分配，这是在 YAML 配置文件中定义的。</p>
+<p>
+        <a data-fancybox="gallery" href="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-resource-quotas.png">
+            <img class="mx-auto" alt="kubernetes-resource-quotas" src="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-resource-quotas.png" />
+        </a>
+    </p>
+<h3 id="工作负载标记">工作负载标记</h3>
+<p>这在 vSphere 和 K8s 中几乎是完全一致的，vSphere 使用 tag 标签来标识虚机，而 K8s 使用标签 (label) 来标识容器。所不同的是，K8s 中标签是必须的，而不是可选的。</p>
+<p>
+        <a data-fancybox="gallery" href="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-labels.png">
+            <img class="mx-auto" alt="kubernetes-labels" src="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-labels.png" />
+        </a>
+    </p>
+<h3 id="计算冗余">计算冗余</h3>
+<p>vSphere 中有 Fault Tolerance  技术来提供计算资源的冗余，受保护的虚机运行在一台服务器上，另一台服务器上有一个从被保护虚机复制而来的影子 (Shadow)，FT 技术通过  Lockstep  来同步主虚机和影子虚机之间的数据和状态。正常情况下影子虚机是不工作的，当主服务器宕机时，影子虚机立刻被激活成主虚机，并继续主虚机工作；这时  vSphere 会设法在集群中找到另一台合适的服务器，在上面从新的主虚机复制出新的影子虚机，以继续对主虚机进行保护。</p>
+<p>K8s 中也有相应的资源冗余机制，ReplicaSets 用于指定一个 Pod 需要运行的实例数量，K8s  会自动维持实例的数量，任何一个实例由于故障原因宕掉了，K8s 马上会自动启动一个新的实例补上。当然两者基本的工作原理是不一样的，K8s  中的所有实例正常情况都是在工作的，在多个实例间均衡工作负载，而不存在主备的概念，这是由云原生应用的本质所决定的。</p>
+<p>
+        <a data-fancybox="gallery" href="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kuberentes-replicasets.png">
+            <img class="mx-auto" alt="kuberentes-replicasets" src="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kuberentes-replicasets.png" />
+        </a>
+    </p>
+<h3 id="负载均衡">负载均衡</h3>
+<p>vSphere 并不内置有负载均衡功能，一般是通过虚拟的 (如NSX) 或物理的 (如F5) 负载均衡器来把服务请求平均分配给多台虚机。负载均衡也有多种配置模式，以单肩模式 (one-armed) 为例，我们把网络流量东西向地均衡分配给虚机。</p>
+<p>K8s 中也有类似的概念“Service”，是一组一起协作的 Pod，每个 Pod 都被定义了一个标签选择器 (label  selector)。K8s Service 也有多种配置模式，例如“ClusterIP“模式，每个 Service 都被分配了一个外部可见的静态 IP 地址和 DNS 域名以便于被访问到，负载流量以轮循 (round-robin) 的方式分配给每一个 Pod。其他的模式如  “NodePort” ，以不同端口访问节点的流量会被映射到不同的 Pod；当然也可以配成 “LoadBalancer”  模式来使用外部的负载均衡器。</p>
+<p>
+        <a data-fancybox="gallery" href="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-services.png">
+            <img class="mx-auto" alt="kubernetes-services" src="%e5%86%99%e7%bb%99VMware%e7%94%a8%e6%88%b7%e7%9c%8b%e7%9a%84Kubernetes%e6%89%ab%e7%9b%b2%e8%b4%b4.assets/kubernetes-services.png" />
+        </a>
+    </p>
+<p>K8s 还有另外一种非常重要的负载均衡机制 “Ingress Controller”，一个 ingress-controller 以 Pod  的形式存在，并且分配有一个外部可见的 IP 地址，该 IP 地址对应着一个含有通配符的 DNS 记录，ingress-controller  根据预先设定的规则来把流量分配给不同的 Pod。例如下图中的 IP 地址 192.168.100.244 对应 DNS 域名  sphinx-v*.esxcloud.net，访问sphinx-v1.esxcloud.net 的流量会被重定向给  “sphinx-svc-1”，而访问sphinx-v2.esxcloud.net 的流量被重定向给 “sphinx-svc2”。</p>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://www.cloudarch.tech">季eddy</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99VMware%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84Kubernetes%E6%89%AB%E7%9B%B2%E8%B4%B4.html">https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99VMware%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84Kubernetes%E6%89%AB%E7%9B%B2%E8%B4%B4.html</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/archives.html"></a></li>
+        
+        <li><a href="/post/AWK%E5%92%8CSED%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html">AWK和SED常用命令</a></li>
+        
+        <li><a href="/post/Docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86.html">Docker基础原理</a></li>
+        
+        <li><a href="/post/Python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0.html">Python函数参数</a></li>
+        
+        <li><a href="/post/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95.html">Python字符串内置方法</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/Kubernetes' target="_blank">Kubernetes</a></li>
+                
+                <li><a href='/tags/VMware' target="_blank">VMware</a></li>
+                
+                <li><a href='/tags/vSphere' target="_blank">vSphere</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "splintereddy/cloudarch_comments"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2022 <a href="https://www.cloudarch.tech">CloudArch By 季eddy</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdn.bootcdn.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="//cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://www.cloudarch.tech/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://www.cloudarch.tech">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/%E5%86%99%E7%BB%99VMware%E7%94%A8%E6%88%B7%E7%9C%8B%E7%9A%84Kubernetes%E6%89%AB%E7%9B%B2%E8%B4%B4.html" title="【转载】写给VMware用户看的Kubernetes扫盲贴" target="_blank">【转载】写给VMware用户看的Kubernetes扫盲贴</a>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/AWK%E5%92%8CSED%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html" title="AWK和SED常用命令" target="_blank">AWK和SED常用命令</a>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/Docker%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86.html" title="Docker基础原理" target="_blank">Docker基础原理</a>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/Python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0.html" title="Python函数参数" target="_blank">Python函数参数</a>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95.html" title="Python字符串内置方法" target="_blank">Python字符串内置方法</a>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/Python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86.html" title="Python装饰器原理" target="_blank">Python装饰器原理</a>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/%E4%BD%BF%E7%94%A8Hugo%E5%92%8CGitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html" title="使用Hugo和GitHub搭建个人博客" target="_blank">使用Hugo和GitHub搭建个人博客</a>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9Python%E9%95%9C%E5%83%8F%E6%BA%90.html" title="修改Python镜像源" target="_blank">修改Python镜像源</a>
+    </li>
+    
+    <li>
+        <a href="https://www.cloudarch.tech/post/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEPrometheus-&#43;-Grafana%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E5%B9%B3%E5%8F%B0.html" title="安装配置Prometheus &#43; Grafana运维监控平台" target="_blank">安装配置Prometheus &#43; Grafana运维监控平台</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://www.cloudarch.tech/categories/docker.html">docker (2)</a></li>
+    
+    <li><a href="https://www.cloudarch.tech/categories/linux.html">linux (2)</a></li>
+    
+    <li><a href="https://www.cloudarch.tech/categories/python.html">python (4)</a></li>
+    
+    <li><a href="https://www.cloudarch.tech/categories/virtualization.html">virtualization (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://www.cloudarch.tech/tags/Kubernetes.html">Kubernetes</a>
+    
+    <a href="https://www.cloudarch.tech/tags/VMware.html">VMware</a>
+    
+    <a href="https://www.cloudarch.tech/tags/awk.html">awk</a>
+    
+    <a href="https://www.cloudarch.tech/tags/docker.html">docker</a>
+    
+    <a href="https://www.cloudarch.tech/tags/linux.html">linux</a>
+    
+    <a href="https://www.cloudarch.tech/tags/python.html">python</a>
+    
+    <a href="https://www.cloudarch.tech/tags/sed.html">sed</a>
+    
+    <a href="https://www.cloudarch.tech/tags/shell.html">shell</a>
+    
+    <a href="https://www.cloudarch.tech/tags/vSphere.html">vSphere</a>
+    
+    <a href="https://www.cloudarch.tech/tags/virtualization.html">virtualization</a>
+    
+    <a href="https://www.cloudarch.tech/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86.html">文本处理</a>
+    
+    <a href="https://www.cloudarch.tech/tags/%E7%9B%91%E6%8E%A7.html">监控</a>
+    
+    <a href="https://www.cloudarch.tech/tags/%E7%BC%96%E7%A8%8B.html">编程</a>
+    
+    <a href="https://www.cloudarch.tech/tags/%E9%95%9C%E5%83%8F%E6%BA%90.html">镜像源</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://developer.aliyun.com/mirror/" title="阿里巴巴开源镜像站">阿里巴巴开源镜像站</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://www.cloudarch.tech/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
