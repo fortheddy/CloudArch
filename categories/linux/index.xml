@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux on CloudArch</title>
-    <link>https://www.cloudarch.tech/categories/linux.html</link>
-    <description>Recent content in linux on CloudArch</description>
+    <title>Linux on CloudArch</title>
+    <link>https://www.cloudarch.tech/categories/Linux.html</link>
+    <description>Recent content in Linux on CloudArch</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language><atom:link href="https://www.cloudarch.tech/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language><atom:link href="https://www.cloudarch.tech/categories/Linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWK和SED常用命令</title>
       <link>https://www.cloudarch.tech/post/AWK%E5%92%8CSED%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</link>
