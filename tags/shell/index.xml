@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>shell on CloudArch</title>
-    <link>https://www.cloudarch.tech/tags/shell/</link>
+    <link>https://www.cloudarch.tech/tags/shell.html</link>
     <description>Recent content in shell on CloudArch</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language><atom:link href="https://www.cloudarch.tech/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWK和SED常用命令</title>
-      <link>https://www.cloudarch.tech/post/AWK%E5%92%8CSED%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <link>https://www.cloudarch.tech/post/AWK%E5%92%8CSED%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cloudarch.tech/post/AWK%E5%92%8CSED%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://www.cloudarch.tech/post/AWK%E5%92%8CSED%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</guid>
       <description>使用awk过滤输出： 1 2 3 4 5 6 7 docker ps|awk &amp;#39;NR!=1 {print $1}&amp;#39; # 作用：过滤docker ps输出的结果，只显示第一列Container ID的值，且不显示第一行”Container ID“ # NR!=1表示过滤掉第一行，NR==1表示只匹配第一行。END表示最后一行 # awk默认以空格为分隔符对每一行进行切</description>
     </item>
     

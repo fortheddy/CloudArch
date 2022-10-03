@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>镜像源 on CloudArch</title>
-    <link>https://www.cloudarch.tech/tags/%E9%95%9C%E5%83%8F%E6%BA%90/</link>
+    <link>https://www.cloudarch.tech/tags/%E9%95%9C%E5%83%8F%E6%BA%90.html</link>
     <description>Recent content in 镜像源 on CloudArch</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language><atom:link href="https://www.cloudarch.tech/tags/%E9%95%9C%E5%83%8F%E6%BA%90/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>修改Python镜像源</title>
-      <link>https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9Python%E9%95%9C%E5%83%8F%E6%BA%90/</link>
+      <link>https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9Python%E9%95%9C%E5%83%8F%E6%BA%90.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9Python%E9%95%9C%E5%83%8F%E6%BA%90/</guid>
+      <guid>https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9Python%E9%95%9C%E5%83%8F%E6%BA%90.html</guid>
       <description>国内常用的Python镜像源地址 阿里云Python镜像源：https://mirrors.aliyun.com/pypi/simple 清华大学Python镜像源：https://mirrors.tuna.tsinghua.edu.cn/pypi/simple 豆瓣Python镜像源</description>
     </item>
     
