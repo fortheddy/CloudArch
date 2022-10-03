@@ -30,7 +30,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.cloudarch.tech/post/Python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86.html</guid>
-      <description>闭包 闭包的定义：嵌套函数，且内部函数调用了外部函数的变量时，就构成了闭包。 下面的例子就是一个函数闭包： def outer(n): a = n def inner(): print(a) print(inner.__closure__) outer() 闭包的__closure__显示为cell ] 装饰器 装饰器其实就是闭包的一种应用。装饰器的作用是不改变函数的调用方式，但要在原来的函数前后添加功能。 装饰器的形式</description>
+      <description>闭包 闭包的定义：嵌套函数，且内部函数调用了外部函数的变量时，就构成了闭包。 下面的例子就是一个函数闭包： 1 2 3 4 5 6 7 8 9 10 def outer(n): a = n def inner(): print(a) print(inner.__closure__) outer() 闭包的__closure__显示为cell ] 装饰器 装饰器其实就是闭包的一种应用。装饰器的作用是不改变函数的调用方式，但要在原来的函数前后添</description>
     </item>
     
     <item>
@@ -40,6 +40,15 @@
       
       <guid>https://www.cloudarch.tech/post/%E4%BF%AE%E6%94%B9Python%E9%95%9C%E5%83%8F%E6%BA%90.html</guid>
       <description>国内常用的Python镜像源地址 阿里云Python镜像源：https://mirrors.aliyun.com/pypi/simple 清华大学Python镜像源：https://mirrors.tuna.tsinghua.edu.cn/pypi/simple 豆瓣Python镜像源</description>
+    </item>
+    
+    <item>
+      <title>查询并禁用删除阿里云中长期未登陆的子帐号</title>
+      <link>https://www.cloudarch.tech/post/%E6%9F%A5%E8%AF%A2%E5%B9%B6%E7%A6%81%E7%94%A8%E5%88%A0%E9%99%A4%E9%98%BF%E9%87%8C%E4%BA%91%E4%B8%AD%E9%95%BF%E6%9C%9F%E6%9C%AA%E7%99%BB%E5%BD%95%E7%9A%84%E5%AD%90%E5%B8%90%E5%8F%B7.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.cloudarch.tech/post/%E6%9F%A5%E8%AF%A2%E5%B9%B6%E7%A6%81%E7%94%A8%E5%88%A0%E9%99%A4%E9%98%BF%E9%87%8C%E4%BA%91%E4%B8%AD%E9%95%BF%E6%9C%9F%E6%9C%AA%E7%99%BB%E5%BD%95%E7%9A%84%E5%AD%90%E5%B8%90%E5%8F%B7.html</guid>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140</description>
     </item>
     
   </channel>

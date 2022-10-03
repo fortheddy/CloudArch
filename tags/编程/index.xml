@@ -21,7 +21,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.cloudarch.tech/post/Python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%8E%9F%E7%90%86.html</guid>
-      <description>闭包 闭包的定义：嵌套函数，且内部函数调用了外部函数的变量时，就构成了闭包。 下面的例子就是一个函数闭包： def outer(n): a = n def inner(): print(a) print(inner.__closure__) outer() 闭包的__closure__显示为cell ] 装饰器 装饰器其实就是闭包的一种应用。装饰器的作用是不改变函数的调用方式，但要在原来的函数前后添加功能。 装饰器的形式</description>
+      <description>闭包 闭包的定义：嵌套函数，且内部函数调用了外部函数的变量时，就构成了闭包。 下面的例子就是一个函数闭包： 1 2 3 4 5 6 7 8 9 10 def outer(n): a = n def inner(): print(a) print(inner.__closure__) outer() 闭包的__closure__显示为cell ] 装饰器 装饰器其实就是闭包的一种应用。装饰器的作用是不改变函数的调用方式，但要在原来的函数前后添</description>
     </item>
     
   </channel>
